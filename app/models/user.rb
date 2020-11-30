@@ -2,6 +2,6 @@ class User < ApplicationRecord
     has_many :entries
     has_many :routines, through: :entries
 
-    validates :name, presence: true 
-    validates :name, uniqueness: true
+    # validates :name, presence: true { "must be created with a name"}
+    # validates :name, uniqueness: true {"Username is already in use"}
 end

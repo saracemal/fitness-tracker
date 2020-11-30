@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_30_220857) do
+ActiveRecord::Schema.define(version: 2020_11_30_234220) do
 
   create_table "entries", force: :cascade do |t|
     t.integer "user_id"
@@ -29,14 +29,13 @@ ActiveRecord::Schema.define(version: 2020_11_30_220857) do
   end
 
   create_table "routine_exercises", force: :cascade do |t|
-    t.integer "session_id"
+    t.integer "routine_id"
     t.integer "exercise_id"
   end
 
   create_table "routines", force: :cascade do |t|
     t.string "name"
     t.integer "user_id"
-    t.integer "routine_exercise_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+require 'faker'
 require 'rest-client' # in order to make HTTP requests from a ruby file
 require 'json'
 
@@ -15,6 +16,7 @@ require 'json'
 
 # exercise_data.map{|exercise| exercise["name"]}
 Exercise.destroy_all
+User.destroy_all
 
 
 exercises = [
@@ -25,3 +27,19 @@ exercises = [
 exercises.each do |exercise|
     Exercise.create(name: exercise)
 end
+
+
+
+10.times do
+    User.create(name: Faker::Name.name, age: rand(16..70), weight: rand(90..250) , height: rand(60..80))
+end
+
+20.times do
+    RoutineExercise.create(routine_id: Routine.all.sample.id, exercise_id: Exercise.all.sample.id)
+end
+
+
+20.times do
+    Routine.create(name: Faker::Esport.event, user_id: User.all.sample.id)
+end
+
