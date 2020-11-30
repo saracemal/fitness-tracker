@@ -1,0 +1,2 @@
+class RoutineExercises < ApplicationController 
+end

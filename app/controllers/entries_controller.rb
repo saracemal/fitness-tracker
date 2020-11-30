@@ -1,0 +1,2 @@
+class Entries < ApplicationController
+end
