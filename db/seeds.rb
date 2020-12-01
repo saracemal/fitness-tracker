@@ -17,6 +17,8 @@ require 'json'
 # exercise_data.map{|exercise| exercise["name"]}
 Exercise.destroy_all
 User.destroy_all
+Routine.destroy_all
+RoutineExercise.destroy_all
 
 
 exercises = [
@@ -35,11 +37,14 @@ end
 end
 
 20.times do
+    Routine.create(name: Faker::Esport.event, user_id: User.all.sample.id)
+end
+
+20.times do
     RoutineExercise.create(routine_id: Routine.all.sample.id, exercise_id: Exercise.all.sample.id)
 end
 
 
-20.times do
-    Routine.create(name: Faker::Esport.event, user_id: User.all.sample.id)
-end
+
+
 

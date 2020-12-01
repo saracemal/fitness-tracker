@@ -1,3 +1,9 @@
 <h1><%= @exercise.name %></h1>
 
 <h4>Difficulty: <%= @exercise.difficulty %></h4>
+
+
+<h5> Routines with this exercise </h5>
+<% @exercise.routine_exercises.each do |re| %>
+    <li><%= link_to re.routine.name, routine_path(re.routine) %></li>
+<% end %>

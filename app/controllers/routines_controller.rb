@@ -4,6 +4,11 @@ class RoutinesController < ApplicationController
         @routines = Routine.all
     end
 
+    def show
+        @routine = Routine.find(params[:id])
+        @routine_exercises = RoutineExercise.all 
+    end
+
     def new
     end
     

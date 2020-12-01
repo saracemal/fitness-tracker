@@ -12,7 +12,7 @@ class ExercisesController < ApplicationController
     end
 
     def create
-        
+        exercise = Exercise.create(exercise_params)
     end
 
     private

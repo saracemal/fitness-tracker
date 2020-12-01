@@ -1,3 +1,8 @@
 <h1><%= @routine.name %></h1>
 
 <% # We want to have the exercises for this routine listed here, and an entry field%>
+
+<h3> Exercises in this routine </h3>
+<% @routine.routine_exercises.each do |re| %>
+    <li><%= link_to re.exercise.name, exercise_path(re.exercise) %></li>
+<% end %>
