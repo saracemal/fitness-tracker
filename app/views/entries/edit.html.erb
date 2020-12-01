@@ -1,4 +1,4 @@
-<h1> New Entry </h1>
+<h1> Edit Entry </h1>
 
 <% if flash[:entry_errors] %>
   <ul>
@@ -17,13 +17,7 @@
     <%= f.text_field :description %>
     <br>
     <br>
-    <%= f.label :user%>
-    <%= f.collection_select :user_id, User.all, :id, :name%>
-    <br>
-    <br>
-    <%= f.label :routine%>
-    <%= f.collection_select :routine_id, Routine.all, :id, :name%>
-    <br>
-    <br>
     <%= f.submit %>
 <% end %>
+
+<%= button_to "Delete This Entry", entry_path(@entry), method :delete %>

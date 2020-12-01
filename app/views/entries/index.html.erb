@@ -1,0 +1,5 @@
+<h1> Entries </h1>
+
+<% @entries.each do |e| %>
+    <li><%= link_to e.title, entry_path(e) %></li>
+<% end %>

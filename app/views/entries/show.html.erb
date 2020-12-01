@@ -1,3 +1,14 @@
-jasndfkjasndf
+<h1> Entry</h1>
 
-<%= button_to "Delete This Entry", entry_path(@entry), method :delete %>
+
+<h1><%= @entry.routine.name %></h1>
+
+<h2><%= @entry.title %></h2>
+
+<p>
+Description: <br>
+<%= @entry.description%>
+</p>
+
+
+<h4>User: <%= link_to @entry.user.name, user_path(@entry.user) %></h4>

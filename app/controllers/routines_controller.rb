@@ -7,6 +7,7 @@ class RoutinesController < ApplicationController
     def show
         @routine = Routine.find(params[:id])
         @routine_exercise = RoutineExercise.new
+        @entry = Entry.new
     end
 
     def new
@@ -29,8 +30,13 @@ class RoutinesController < ApplicationController
         redirect_to routine_path(@routine)
     end 
 
+    def routine_entries
+        @routine = Routine.find(params[:id])
+        @entries = Entry.all
+    end
+
     private
     def routine_params
-        params.require(:routine).permit(:name, :user_id)
+        params.require(:routine).permit(:name)
     end
 end

@@ -4,13 +4,14 @@
 
 <h4> Age: <%= @user.age %></h4>
 
-<h4> Weight: <%= @user.weight %></h4>
+<h4> Weight: <%= @user.weight %> lbs. </h4>
 
-<h4> Height: <%= @user.height %></h4>
+<h4> Height: <%= @user.height %> inches </h4>
 
 <h3> My Routines </h3>
 
 
-<% @user.routines.each do |routine| %>
-    <li><%= link_to routine.name, routine_path(routine) %></li>
+<% @user.routines.uniq.each do |routine| %>
+    <li><%= link_to routine.name, user_routines_path %></li>
 <% end %>
+

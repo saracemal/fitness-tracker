@@ -28,3 +28,25 @@
 
     <%= f.hidden_field :routine_id, value: @routine.id%>
 <% end %>
+<br>
+<br>
+<hr>
+
+
+
+
+<h2> Entry </h2>
+
+<%= form_for @entry do |f| %>
+    <%= f.label :title %> 
+    <%= f.text_field :title %>
+    <br>
+    <br>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+    <br>
+    <br>
+    <% f.hidden_field :routine_id, value: @routine.id %>
+
+    <%= f.submit %>
+<% end %>

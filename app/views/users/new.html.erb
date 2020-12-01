@@ -1,0 +1,29 @@
+<h1>Create a New User </h1> 
+
+<%= form_for @user do |f| %>
+    <%= f.label :user_name %>
+    <%= f.text_field :user_name %>
+    <br>
+    <br>
+    <%= f.label :password %>  
+    <%= f.text_field :password %>
+    <br>
+    <br>
+    <%= f.label :name %>  (first and last, will edit this)
+    <%= f.text_field :name %>
+    <br>
+    <br>
+    <%= f.label :age %>
+    <%= f.number_field :age %>
+    <br>
+    <br>
+    <%= f.label :weight %> (in pounds)
+    <%= f.number_field :weight %>
+    <br>
+    <br>
+    <%= f.label :height %> (in inches)
+    <%= f.number_field :height %>
+    <br>
+    <br>
+    <%= f.submit %>
+<% end %>

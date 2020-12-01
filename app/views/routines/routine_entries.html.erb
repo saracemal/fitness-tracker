@@ -1,0 +1,8 @@
+<h1> All entries for this routine and user </h1>
+
+Need a way to show specific entries for this routine and specific user
+Cookies?
+<h2> <%= @routine.name %> </h2>
+<% @routine.entries.each do |entry| %>
+    <li><%= link_to entry.title, entry_path(entry) %></li>
+<% end %>

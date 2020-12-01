@@ -37,14 +37,15 @@ ActiveRecord::Schema.define(version: 2020_12_01_002932) do
 
   create_table "routines", force: :cascade do |t|
     t.string "name"
-    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "user_name"
     t.string "name"
     t.integer "age"
     t.integer "weight"
     t.integer "height"
+    t.string "password_digest"
   end
 
 end
