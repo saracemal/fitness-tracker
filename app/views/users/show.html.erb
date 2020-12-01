@@ -12,5 +12,5 @@
 
 
 <% @user.routines.each do |routine| %>
-    <%= link_to routine.name, routine_path(routine) %>
+    <li><%= link_to routine.name, routine_path(routine) %></li>
 <% end %>

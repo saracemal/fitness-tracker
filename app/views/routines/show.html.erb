@@ -4,5 +4,23 @@
 
 <h3> Exercises in this routine </h3>
 <% @routine.routine_exercises.each do |re| %>
-    <li><%= link_to re.exercise.name, exercise_path(re.exercise) %></li>
+    <li>
+        Exercise: <%= link_to re.exercise.name, exercise_path(re.exercise) %>        Repetitions: <%= re.reps%>
+    </li>
+<% end %>
+
+<h3> Add an exercise </h3>
+
+<%= form_for @routine_exercise do |f| %>
+    <%= f.label :exercise %>
+    <%= f.collection_select :exercise_id, Exercise.all, :id, :name %>
+    <br>
+    <br>
+    <%= f.label :reps %>
+    <%= f.number_field :reps %>
+    <br>
+    <br>
+    <%= f.submit "Add Exercise" %>
+
+    <%= f.hidden_field :routine_id, value: @routine.id%>
 <% end %>

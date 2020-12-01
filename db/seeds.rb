@@ -32,15 +32,15 @@ end
 
 
 
-10.times do
+5.times do
     User.create(name: Faker::Name.name, age: rand(16..70), weight: rand(90..250) , height: rand(60..80))
 end
 
-20.times do
+10.times do
     Routine.create(name: Faker::Esport.event, user_id: User.all.sample.id)
 end
 
-20.times do
+40.times do
     RoutineExercise.create(routine_id: Routine.all.sample.id, exercise_id: Exercise.all.sample.id)
 end
 

@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 2020_12_01_002932) do
 
   create_table "exercises", force: :cascade do |t|
     t.string "name"
-    t.integer "reps"
     t.string "difficulty"
   end
 
@@ -33,6 +32,7 @@ ActiveRecord::Schema.define(version: 2020_12_01_002932) do
   create_table "routine_exercises", force: :cascade do |t|
     t.integer "routine_id"
     t.integer "exercise_id"
+    t.integer "reps"
   end
 
   create_table "routines", force: :cascade do |t|

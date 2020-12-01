@@ -1,0 +1,14 @@
+<h1> Create New Routine </h1>
+
+<%= form_for @routine do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <br>
+    <br>
+    <% # collection select for now, once we have session going this should probably be a hidden field that just looks for user ID from session?%>
+    <%= f.label :user_id %>
+    <%= f.collection_select :user_id, User.all, :id, :name %>
+    <br>
+    <br>
+    <%= f.submit "Create Routine" %>
+<% end %>
