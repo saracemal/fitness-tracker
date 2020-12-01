@@ -12,6 +12,6 @@
 
 
 <% @user.routines.uniq.each do |routine| %>
-    <li><%= link_to routine.name, user_routines_path %></li>
+    <li><%= link_to routine.name, routine_entries_path %></li>
 <% end %>
 

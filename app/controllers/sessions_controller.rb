@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
     def logout
         cookies.delete(:user_id)
-        redirect_to new_user_path
+        redirect_to users_path
     end
 
     def new
@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
         user = User.find_by(user_name: params[:session][:user_name])
 
         if user && user.authenticate(params[:session][:password])
-            sessions[:user_id] = user.id
+            cookies[:user_id] = user.id
             redirect_to users_path
         else
             flash[:errors] = user.errors.full_messages

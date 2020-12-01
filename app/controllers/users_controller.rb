@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 
     def create
         user = User.create(user_params)
-        sessions[:user_id] = user.id
+        cookies[:user_id] = user.id
         redirect_to user_path(user)
 
         # if user.valid?

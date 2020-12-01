@@ -32,7 +32,7 @@ class RoutinesController < ApplicationController
 
     def routine_entries
         @routine = Routine.find(params[:id])
-        @entries = Entry.all
+        
     end
 
     private
