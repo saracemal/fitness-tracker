@@ -1,0 +1,15 @@
+<h1><%= @routine_exercise.exercise.name %></h1>
+
+<%= form_for @routine_exercise do |f| %>
+    <%= f.label :exercise %>
+    <%= f.collection_select :exercise_id, Exercise.all, :id, :name %>
+    <br>
+    <br>
+    <%= f.label :reps %>
+    <%= f.number_field :reps %>
+    <br>
+    <br>
+    <%= f.submit "Edit Exercise" %>
+
+    <%= f.hidden_field :routine_id, value: @routine_exercise.routine.id%>
+<% end %>

@@ -1,6 +1,8 @@
 <h1> Edit Routine </h1>
 
-<%= form_for @routine do |f| %>
+<% # Need some way to iterate over ever exercise in a routine, and display those exercise on form%>
+
+<%= form_for @routine_exercises do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %>
     <br>
@@ -8,6 +10,10 @@
     <% # collection select for now, once we have session going this should probably be a hidden field that just looks for user ID from session?%>
     <%= f.label :user_id %>
     <%= f.collection_select :user_id, User.all, :id, :name %>
+    <br>
+    <br>
+    <% %>
+
     <br>
     <br>
     <%= f.submit "Edit Routine" %>

@@ -5,7 +5,9 @@
 <h3> Exercises in this routine </h3>
 <% @routine.routine_exercises.each do |re| %>
     <li>
-        Exercise: <%= link_to re.exercise.name, exercise_path(re.exercise) %>        Repetitions: <%= re.reps%>
+        Exercise: <%= link_to re.exercise.name, exercise_path(re.exercise) %>        
+        Repetitions: <%= re.reps%>
+        <%= button_to "Edit Exercise", edit_routine_exercise_path(re), method: :get%>
     </li>
 <% end %>
 

@@ -1,4 +1,6 @@
 <h1> For checkin routine exercise relationships</h1>
 <% @routine_exercises.each do |re| %>
-    <li><%= re %></li>
+    <li>
+        <%= link_to re.exercise.name, routine_exercise_path(re) %>  <%= re.routine.user.name %>  <%= re.reps%>
+    </li>
 <% end %>
