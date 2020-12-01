@@ -4,11 +4,13 @@
 
 <h3> Exercises in this routine </h3>
 <% @routine.routine_exercises.each do |re| %>
+    <ul>
     <li>
-        Exercise: <%= link_to re.exercise.name, exercise_path(re.exercise) %>        
+        Exercise: <%= link_to re.exercise.name.capitalize, exercise_path(re.exercise) %><br>
         Repetitions: <%= re.reps%>
         <%= button_to "Edit Exercise", edit_routine_exercise_path(re), method: :get%>
     </li>
+    </ul>
 <% end %>
 
 <h3> Add an exercise </h3>
