@@ -15,12 +15,12 @@ class ExercisesController < ApplicationController
     def create
         exercise = Exercise.create(exercise_params)
 
-        # if exercise.valid?
-        #     redirect_to exercise_path(exercise)
-        # else
-        #     flash[:exercise_errors] = exercise.errors.full_messages
-        #     redirect_to new_exercise_path
-        # end
+        if exercise.valid?
+            redirect_to exercise_path(exercise)
+        else
+            flash[:exercise_errors] = exercise.errors.full_messages
+            redirect_to new_exercise_path
+        end
     end
 
     private
