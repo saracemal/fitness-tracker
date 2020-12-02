@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-    has_many :routines
-    has_many :created_routines, foreign_key: "user_id:", class_name: "routine"
+    #has_many :routines
+    has_many :created_routines, foreign_key: "user_id:", class_name: "Routine"
     
     has_many :entries
     has_many :routines, through: :entries

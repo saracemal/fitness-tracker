@@ -33,9 +33,9 @@ end
 
 
 
-5.times do
-    User.create(name: Faker::Name.name, age: rand(16..70), weight: rand(90..250) , height: rand(60..80))
-end
+# 5.times do
+#     User.create(name: Faker::Name.name, age: rand(16..70), weight: rand(90..250) , height: rand(60..80))
+# end
 
 # 5.times do
 #     Routine.create(name: Faker::Esport.event)

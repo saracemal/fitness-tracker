@@ -17,7 +17,10 @@ class RoutinesController < ApplicationController
         @routine = Routine.find(params[:id])
         @routine_exercise = RoutineExercise.new
         @entry = Entry.new
-        @user_routine = UserRoutine.find_by(routine_id: @routine)
+        #@entry_belong = Entry.find_by(routine_id: @routine.id)
+        #@user_routine = UserRoutine.find_by(routine_id: @routine.id)
+        #byebug
+
     end
 
     def new
