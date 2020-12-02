@@ -1,12 +1,12 @@
 <h1> New Exercise </h1>
 
-# <% if flash[:exercise_errors] %>
-#   <ul>
-#     <% flash[:exercise_errors].each do |error| %>
-#       <li><%= error %></li>
-#     <% end%>
-#   </ul>
-# <% end%>
+<% if flash[:exercise_errors] %>
+    <ul>
+    <% flash[:exercise_errors].each do |error| %>
+        <li><%= error %></li>
+    <% end%>
+    </ul>
+<% end%>
 
 <%= form_for @exercise do |f| %>
     <%= f.label :name %> 
