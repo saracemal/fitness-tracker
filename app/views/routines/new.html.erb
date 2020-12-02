@@ -1,5 +1,13 @@
 <h1> Create New Routine </h1>
 
+<% if flash[:routine_errors] %>
+  <ul>
+    <% flash[:routine_errors].each do |error| %>
+      <li><%= error %></li>
+    <% end%>
+  </ul>
+<% end%>
+
 <%= form_for @routine do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %>
