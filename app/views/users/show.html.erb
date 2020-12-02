@@ -12,6 +12,14 @@
 
 
 <% @user.routines.uniq.each do |routine| %>
-    <li><%= link_to routine.name, routine_entries_path %></li>
+    <li><%= routine.name %></li>
 <% end %>
+<br>
+<%= link_to "See all routines and entries", entries_path%>
+
+<br>
+<br>
+<hr>
+
+<h3>Add a Routine</h3>
 

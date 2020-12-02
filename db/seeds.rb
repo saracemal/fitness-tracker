@@ -15,10 +15,10 @@ require 'json'
 # exercise_data = JSON.parse(exercise_api_resp)
 
 # exercise_data.map{|exercise| exercise["name"]}
-Exercise.destroy_all
-User.destroy_all
-Routine.destroy_all
-RoutineExercise.destroy_all
+#Exercise.destroy_all
+#User.destroy_all
+#Routine.destroy_all
+#RoutineExercise.destroy_all
 
 
 exercises = [

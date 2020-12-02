@@ -32,10 +32,21 @@
 <br>
 <hr>
 
+<h3> Journal </h3> needs to be sorted by date, most recent at top
+
+<% @routine.entries.each do |entry| %>
+    <% if entry.user_id == cookies[:user_id].to_i%>
+        <ul>
+            <li>
+            <%= entry.title %><br><br>
+            <%= entry.description %>
+            </li>
+        </ul>
+    <% end %>
+<% end %>
 
 
-
-<h2> Entry </h2>
+<h2> Let the world know.. </h2>
 
 <%= form_for @entry do |f| %>
     <%= f.label :title %> 
@@ -46,7 +57,8 @@
     <%= f.text_area :description %>
     <br>
     <br>
-    <% f.hidden_field :routine_id, value: @routine.id %>
+    <%= f.hidden_field :routine_id, value: @routine.id %>
+    <%= f.hidden_field :user_id, value: cookies[:user_id].to_i %>
 
-    <%= f.submit %>
+    <%= f.submit "Add entry" %>
 <% end %>

@@ -13,7 +13,7 @@ class RoutinesController < ApplicationController
 
     def new
         @routine = Routine.new
-        
+        @entry = Entry.new
     end
     
     def create
