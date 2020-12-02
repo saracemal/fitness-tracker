@@ -21,6 +21,7 @@
       <li><%= link_to "Create An Exercise", new_exercise_path %></li>
       <li><%= link_to "New Routine", new_routine_path %></li>
       <li><%= link_to "Discover", users_path %></li>
+      <li><%= link_to "My Routines", routines_path %></li>
 
       <% if @current_user %>
         <li class="right"><%= link_to "logout", logout_path, method: :delete  %></li>

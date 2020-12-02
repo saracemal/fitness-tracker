@@ -38,7 +38,7 @@
     <% if entry.user_id == cookies[:user_id].to_i%>
         <ul>
             <li>
-            <%= entry.title %><br><br>
+            <%= link_to entry.title, entry_path(entry) %><br><br>
             <%= entry.description %>
             </li>
         </ul>

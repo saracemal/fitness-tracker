@@ -10,8 +10,15 @@ Logged in user routines
     <% if entry.user_id == cookies[:user_id].to_i %>
         <li><%= link_to entry.routine.name, routine_path(entry.routine) %></li>
     <% end %>
+<% end %><hr><br>
+
+<% @unique_routines.each do |routine|%>
+    <li><%= link_to routine.name, routine_path(routine) %></li>
 <% end %>
 
+
+<br>
+<br>
 <% # We probably want routines to be sorted by date or something ?%>
 
 # We can create a method in the routine model like sort_by 
