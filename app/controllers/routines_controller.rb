@@ -18,6 +18,14 @@ class RoutinesController < ApplicationController
     
     def create
         routine = Routine.create(routine_params)
+        if routine.valid?
+             redirect_to routine_path(routine)
+          else
+              flash[:routine_errors] = routine.errors.full_messages
+              redirect_to new_routine_path
+          end
+
+
         redirect_to routine_path(routine)
     end
 
