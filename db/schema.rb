@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_01_002932) do
+ActiveRecord::Schema.define(version: 2020_12_02_200509) do
 
   create_table "entries", force: :cascade do |t|
     t.string "title"
@@ -37,6 +37,12 @@ ActiveRecord::Schema.define(version: 2020_12_01_002932) do
 
   create_table "routines", force: :cascade do |t|
     t.string "name"
+    t.integer "user_id"
+  end
+
+  create_table "user_routines", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "routine_id"
   end
 
   create_table "users", force: :cascade do |t|

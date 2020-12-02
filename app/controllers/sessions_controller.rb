@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+    skip_before_action :authorized, only: [:new, :login]
+
     def logout
         cookies.delete(:user_id)
         redirect_to users_path
@@ -12,7 +14,7 @@ class SessionsController < ApplicationController
 
         if user && user.authenticate(params[:session][:password])
             cookies[:user_id] = user.id
-            redirect_to users_path
+            redirect_to user_path(user)
         else
             flash[:errors] = user.errors.full_messages
             redirect_to new_login_path

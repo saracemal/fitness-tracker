@@ -1,6 +1,6 @@
 <h1> Add New Routine</h1>
 
-<%= form_for @entry do |f| %>
+<%= form_for @user_routine do |f| %>
     <%= f.label :routine %>
     <%= f.collection_select :routine_id, Routine.all, :id, :name %>
     <br>
@@ -25,5 +25,6 @@
     <%= f.text_field :name %>
     <br>
     <br>
+    <%= f.hidden_field :user_id, value: cookies[:user_id].to_i %>
     <%= f.submit "Create Routine" %>
 <% end %>

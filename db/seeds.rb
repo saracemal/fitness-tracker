@@ -7,12 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
-require 'rest-client' # in order to make HTTP requests from a ruby file
+#require 'rest-client' # in order to make HTTP requests from a ruby file
 require 'json'
 
 
-# exercise_api_resp = RestClient.get('https://wger.de/api/v2/exercise/')
-# exercise_data = JSON.parse(exercise_api_resp)
+# exercise_api_resp = HTTParty.get('https://wger.de/api/v2/exercise/?limit=20')
+# byebug
+# exercise_data = JSON.parse(exercise_api_resp.body)
 
 # exercise_data.map{|exercise| exercise["name"]}
 #Exercise.destroy_all

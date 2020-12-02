@@ -8,25 +8,29 @@
     <li>
         Exercise: <%= link_to re.exercise.name.capitalize, exercise_path(re.exercise) %><br>
         Repetitions: <%= re.reps%>
-        <%= button_to "Edit Exercise", edit_routine_exercise_path(re), method: :get%>
+        <% if @routine.user_id == cookies[:user_id].to_i %>
+            <%= button_to "Edit Exercise", edit_routine_exercise_path(re), method: :get%>
+        <% end %>
     </li>
     </ul>
 <% end %>
 
-<h3> Add an exercise </h3>
+<% if @routine.user_id == cookies[:user_id].to_i %>
+    <h3> Add an exercise </h3>
 
-<%= form_for @routine_exercise do |f| %>
-    <%= f.label :exercise %>
-    <%= f.collection_select :exercise_id, Exercise.all, :id, :name %>
-    <br>
-    <br>
-    <%= f.label :reps %>
-    <%= f.number_field :reps %>
-    <br>
-    <br>
-    <%= f.submit "Add Exercise" %>
+    <%= form_for @routine_exercise do |f| %>
+        <%= f.label :exercise %>
+        <%= f.collection_select :exercise_id, Exercise.all, :id, :name %>
+        <br>
+        <br>
+        <%= f.label :reps %>
+        <%= f.number_field :reps %>
+        <br>
+        <br>
+        <%= f.submit "Add Exercise" %>
 
-    <%= f.hidden_field :routine_id, value: @routine.id%>
+        <%= f.hidden_field :routine_id, value: @routine.id%>
+    <% end %>
 <% end %>
 <br>
 <br>
@@ -46,19 +50,21 @@
 <% end %>
 
 
-<h2> Let the world know.. </h2>
 
-<%= form_for @entry do |f| %>
-    <%= f.label :title %> 
-    <%= f.text_field :title %>
-    <br>
-    <br>
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-    <br>
-    <br>
-    <%= f.hidden_field :routine_id, value: @routine.id %>
-    <%= f.hidden_field :user_id, value: cookies[:user_id].to_i %>
+    <h2> Let the world know.. </h2>
 
-    <%= f.submit "Add entry" %>
-<% end %>
+    <%= form_for @entry do |f| %>
+        <%= f.label :title %> 
+        <%= f.text_field :title %>
+        <br>
+        <br>
+        <%= f.label :description %>
+        <%= f.text_area :description %>
+        <br>
+        <br>
+        <%= f.hidden_field :routine_id, value: @routine.id %>
+        <%= f.hidden_field :user_id, value: cookies[:user_id].to_i %>
+
+        <%= f.submit "Add entry" %>
+    <% end %>
+

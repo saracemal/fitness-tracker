@@ -1,25 +1,47 @@
-<h1> About Me </h1>
 
-<h4> Name: <%= @user.name %></h4>
+<% if @user.id == @current_user.id %>
+    <h1> About Me </h1>
 
-<h4> Age: <%= @user.age %></h4>
+    <h4> Name: <%= @user.name %></h4>
 
-<h4> Weight: <%= @user.weight %> lbs. </h4>
+    <h4> Age: <%= @user.age %></h4>
 
-<h4> Height: <%= @user.height %> inches </h4>
+    <h4> Weight: <%= @user.weight %> lbs. </h4>
 
-<h3> My Routines </h3>
+    <h4> Height: <%= @user.height %> inches </h4>
+
+    <h3> My Routines </h3>
+
+    <% @unique_routines.each do |ur| %>
+        <li><%= ur.name %></li>
+    <% end %>
+    <br>
+
+    <%= link_to "Manage routines and entries", routines_path%>
+
+    <br>
+    <br>
+
+    <%= link_to "Add Routine", new_routine_path%>
+<% else %>
+    <h1> About Me </h1>
+
+    <h4> Name: <%= @user.name %></h4>
+
+    <h4> Age: <%= @user.age %></h4>
+
+    <h4> Weight: <%= @user.weight %> lbs. </h4>
+
+    <h4> Height: <%= @user.height %> inches </h4>
+
+    <h3> Their Routines </h3>
 
 
-<% @user.routines.uniq.each do |routine| %>
-    <li><%= routine.name %></li>
+    <% @user.routines.uniq.each do |routine| %>
+        <li><%= link_to routine.name, routine_path(routine) %></li>
+    <% end %>
+    <br>
+    <%= link_to "See their routines and entries", routines_path%>
+
 <% end %>
-<br>
-<%= link_to "See all routines and entries", routines_path%>
-
-<br>
-<br>
-<hr>
-
-<h3>Add a Routine</h3>
 
