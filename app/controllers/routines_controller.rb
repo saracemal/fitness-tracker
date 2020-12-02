@@ -3,6 +3,7 @@ class RoutinesController < ApplicationController
     def index
         @routines = Routine.all
         @entries = Entry.all
+        @unique_routines = @entries.select{|entry| entry.user_id == cookies[:user_id].to_i}.map{|entry| entry.routine}.uniq 
     end
 
     def show
