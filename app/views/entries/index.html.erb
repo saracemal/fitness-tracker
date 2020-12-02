@@ -1,11 +1,8 @@
-<h1> Entries </h1> 
-cookie user id: <%= cookies[:user_id] %><br><br>
+<h1> Your Entries </h1> 
 
 <% @entries.each do |e| %> 
-    
-    <%= e.user_id == cookies[:user_id] %>
+    <% if e.user_id == cookies[:user_id].to_i %>
+        <li><%= link_to e.title, entry_path(e) %></li>
+    <% end %>
 <% end %>
 
-<% @entries.each do |e| %>
-    <li><%= link_to e.title, entry_path(e) %> <%= e.user_id %></li>
-<% end %>

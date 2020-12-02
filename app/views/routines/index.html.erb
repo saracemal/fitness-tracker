@@ -1,7 +1,15 @@
-<h1>Routines</h1>
+<h1>Your Routines</h1>
 
+All routines
 <% @routines.each do |routine| %>
     <li><%= link_to routine.name, routine_path(routine) %></li>
+<% end %><br><br>
+
+Logged in user routines
+<% @entries.each do |entry| %> 
+    <% if entry.user_id == cookies[:user_id].to_i %>
+        <li><%= link_to entry.routine.name, routine_path(entry.routine) %></li>
+    <% end %>
 <% end %>
 
 <% # We probably want routines to be sorted by date or something ?%>

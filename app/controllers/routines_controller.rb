@@ -2,6 +2,7 @@ class RoutinesController < ApplicationController
 
     def index
         @routines = Routine.all
+        @entries = Entry.all
     end
 
     def show
