@@ -14,7 +14,7 @@ class RoutinesController < ApplicationController
 
     def new
         @routine = Routine.new
-        @entry = Entry.new
+        @user_routine = UserRoutine.new
     end
     
     def create

@@ -26,6 +26,8 @@ gem 'rest-client'
 
 gem 'faker'
 
+gem 'httparty'
+
 
 
 # Use Active Storage variant

@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+    skip_before_action :authorized, only: [:new, :login]
+
     def logout
         cookies.delete(:user_id)
         redirect_to users_path

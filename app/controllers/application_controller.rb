@@ -1,21 +1,23 @@
 class ApplicationController < ActionController::Base
 
 	before_action :find_current_user
+	before_action :authorized
 
 	def find_current_user
 		@current_user = User.find_by(id: cookies[:user_id])
 	end
 
-    ## Below is code that we may use whenever we create usernames
-    ## and passwords and don't want to give inauthenticated users
-    ## access to pages they don't need to be in
+	def authorized
+		redirect_to new_user_path unless @current_user
+	end
 
-    # before_filter :set_user
+	#as stretch funtionality, we can change the above to redirect_to login_path
+	#in order for you to get taken to the login page instead of new user page, 
+	#and then create a button at the bottom that says "new user/sign-up", whatever and
+	#that can redirect to new_user_path.
 
-	# protected
-	#  def set_user
-	#  @user = User.find(session[:id]) if @user.nil? && session[:id]
-	#  end
+  
+	
 
 	#  def login_required
 	#  return true if @user
