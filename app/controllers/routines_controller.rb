@@ -3,13 +3,21 @@ class RoutinesController < ApplicationController
     def index
         @routines = Routine.all
         @entries = Entry.all
-        @unique_routines = @entries.select{|entry| entry.user_id == cookies[:user_id].to_i}.map{|entry| entry.routine}.uniq 
+        @user_routines = UserRoutine.all
+        
+        e = @entries.select{|entry| entry.user_id == cookies[:user_id].to_i}.map{|entry| entry.routine}.uniq 
+        u = @user_routines.select{|ur| ur.user_id == cookies[:user_id].to_i}.map{|ur| ur.routine}.uniq 
+        @unique_routines = [e, u].flatten.uniq
+
+        #@unique_routines = @entries.select{|entry| entry.user_id == cookies[:user_id].to_i}.map{|entry| entry.routine}.uniq 
+        
     end
 
     def show
         @routine = Routine.find(params[:id])
         @routine_exercise = RoutineExercise.new
         @entry = Entry.new
+        @user_routine = UserRoutine.find_by(routine_id: @routine)
     end
 
     def new
@@ -20,14 +28,12 @@ class RoutinesController < ApplicationController
     def create
         routine = Routine.create(routine_params)
         if routine.valid?
-             redirect_to routine_path(routine)
-          else
-              flash[:routine_errors] = routine.errors.full_messages
-              redirect_to new_routine_path
-          end
-
-
-        redirect_to routine_path(routine)
+            UserRoutine.create(user_id: cookies[:user_id], routine_id: routine.id)
+            redirect_to routine_path(routine)
+        else
+            flash[:routine_errors] = routine.errors.full_messages
+            redirect_to new_routine_path
+        end
     end
 
     def edit
@@ -47,6 +53,6 @@ class RoutinesController < ApplicationController
 
     private
     def routine_params
-        params.require(:routine).permit(:name)
+        params.require(:routine).permit(:name, :user_id)
     end
 end

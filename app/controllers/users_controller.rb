@@ -7,7 +7,13 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
-        @entry = Entry.new
+        @entries = Entry.all
+        @user_routines = UserRoutine.all
+        
+        e = @entries.select{|entry| entry.user_id == cookies[:user_id].to_i}.map{|entry| entry.routine}.uniq 
+        u = @user_routines.select{|ur| ur.user_id == cookies[:user_id].to_i}.map{|ur| ur.routine}.uniq 
+        @unique_routines = [e, u].flatten.uniq
+
     end
 
     def new

@@ -25,5 +25,6 @@
     <%= f.text_field :name %>
     <br>
     <br>
+    <%= f.hidden_field :user_id, value: cookies[:user_id].to_i %>
     <%= f.submit "Create Routine" %>
 <% end %>

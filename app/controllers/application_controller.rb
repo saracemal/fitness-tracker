@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 	end
 
 	def authorized
-		redirect_to new_user_path unless @current_user
+		redirect_to new_login_path unless @current_user
 	end
 
 	#as stretch funtionality, we can change the above to redirect_to login_path

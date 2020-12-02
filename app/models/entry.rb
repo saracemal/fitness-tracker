@@ -1,9 +1,11 @@
-class Entry < ApplicationRecord #joiner table between User and Routine (?)
+class Entry < ApplicationRecord 
     belongs_to :user
     belongs_to :routine
     # has_many :likes (?)
 
 
-    #def top_5_entries
+    #def most_recent_entry
+        # Entry.order("created_at DESC")
     #end 
+
 end

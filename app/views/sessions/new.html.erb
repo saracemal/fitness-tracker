@@ -1,4 +1,8 @@
+
+
+
 <h1> Login </h1>
+<h3> Welcome Back! </h3>
 
 
 <div class="form-container">
@@ -10,10 +14,14 @@
 
     <div class="form-input">
         <%= f.label :password %>
-        <%= f.text_field :password %>
+        <%= f.password_field :password %>
     </div>
 
     <%= f.submit class: "form-btn" %>
+
+    <br>
+    <br>
+    <%= link_to "New User? Sign Up! 🖋 ", new_user_path %>
     
   <% end %>
 
