@@ -60,8 +60,9 @@ class UsersController < ApplicationController
     end
 
     def routine_entries
+        # Trying to find this user's id
         @routine = Routine.find(params[:id])
-        #@user = User.find(params[:id])
+        
     end
 
     private

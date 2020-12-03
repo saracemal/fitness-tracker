@@ -16,20 +16,28 @@
       <h1 id="banner-header">fitness </h1>
     </div>
 
+<% if controller_name == "pages" && action_name == "home" %>
+    <ul class="nav">
+      <li class="right"><%= link_to "Sign Up", new_user_path %></li>
+      <li class="right"><%= link_to "Login", new_login_path %></li>
+    </ul>
+    <% else %>
     <ul class="nav">
       <li><%= link_to "Discover", users_path %></li>
       <li><%= link_to "My Routines", routines_path %></li>
       <li><%= link_to "Exercises", exercises_path %></li>
       <li><%= link_to "Create An Exercise", new_exercise_path %></li>
       <li><%= link_to "New Routine", new_routine_path %></li>
+    <% end %>
+
+     
 
 
       <% if @current_user %>
-        <li class="right"><%= link_to "logout", logout_path, method: :delete  %></li>
+        <li class="right"><%= link_to "Logout", logout_path, method: :delete  %></li>
         <li class="right">Welcome <%= link_to @current_user.name, user_path(@current_user.id) %></li>
       <% else %>
-        <li class="right"><%= link_to "Sign Up", new_user_path %></li>
-        <li class="right"><%= link_to "Login", new_login_path %></li>
+        
       <% end %>
     </ul>
 

@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   post '/sessions/login', to: 'sessions#login', as: 'login'
   #get '/user_views/:id/', to: 'user_views#routines', as: 'user_view_routines'
   get 'users/:id/page', to: 'users#routines', as: 'user_page'
-  get 'users/:id/page/entries', to: 'users#routine_entries', as: 'user_entry'
+  get 'users/:id/page/entries/', to: 'users#routine_entries', as: 'user_entry'
 
   root to: 'pages#home'
 
