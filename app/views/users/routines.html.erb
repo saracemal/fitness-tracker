@@ -1,0 +1,9 @@
+
+
+<%= @user.id %>
+
+<h1><%= "#{@user.user_name}'s Routines" %></h1>
+
+<% @unique_routines.each do |ur| %>
+   <li><%= link_to ur.name, user_entry_path(ur) %></li>
+<% end %>

@@ -24,7 +24,7 @@
 
     <%= link_to "Add Routine", new_routine_path%>
 <% else %>
-    <h1> About Me </h1>
+    <h1> About <%= @user.user_name%> </h1>
 
     <h4> Name: <%= @user.name %></h4>
 
@@ -38,10 +38,10 @@
 
 
     <% @user.routines.uniq.each do |routine| %>
-        <li><%= link_to routine.name, routine_path(routine) %></li>
+        <li><%= routine.name %></li>
     <% end %>
     <br>
-    <%= link_to "See their routines and entries", routines_path%>
+    <%= link_to "See their routines and entries", user_page_path%>
 
 <% end %>
 

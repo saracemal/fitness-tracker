@@ -48,9 +48,20 @@ class UsersController < ApplicationController
         @user = User.destroy
     end
 
-    def user_routines
+    def routines
         @user = User.find(params[:id])
+        @routines = Routine.all.select{|routine| routine.user_id == @user.id}
+        @entries = Entry.all
+        @user_routines = UserRoutine.all
         
+        e = @entries.select{|entry| entry.user_id == @user.id}.map{|entry| entry.routine}.uniq 
+        u = @user_routines.select{|ur| ur.user_id == @user.id}.map{|ur| ur.routine}.uniq 
+        @unique_routines = [e, u].flatten.uniq
+    end
+
+    def routine_entries
+        @routine = Routine.find(params[:id])
+        #@user = User.find(params[:id])
     end
 
     private

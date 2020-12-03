@@ -1,0 +1,16 @@
+<h1><%= @routine.name %> Entries</h1>
+
+NOT WORKING ATM
+<!--<h5>User: <%= link_to @user.user_name, user_path(@user)%></h5>-->
+
+<%= @routine.id %>
+<% @user.entries.each do |entry| %>
+    <%= entry.routine_id%>
+    <% if entry.routine_id == @routine.id%>
+        <p>
+            <strong><%= entry.title %></strong><br><br>
+            
+            <%= entry.description %>
+        </p>
+    <% end %>
+<% end %>

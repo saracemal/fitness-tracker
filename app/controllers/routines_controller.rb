@@ -31,19 +31,13 @@ class RoutinesController < ApplicationController
     def create
         routine = Routine.create(routine_params)
         if routine.valid?
-<<<<<<< HEAD
-=======
             UserRoutine.create(user_id: cookies[:user_id], routine_id: routine.id)
->>>>>>> 53add954e396f613186da8d5ac71e1b7220adcda
             redirect_to routine_path(routine)
         else
             flash[:routine_errors] = routine.errors.full_messages
             redirect_to new_routine_path
         end
-<<<<<<< HEAD
         
-=======
->>>>>>> 53add954e396f613186da8d5ac71e1b7220adcda
     end
 
     def edit
