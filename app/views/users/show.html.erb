@@ -12,7 +12,7 @@
 
     <br>
     <br>
-    <%= button_to "Edit Profile ", edit_user_path %>
+    <%= link_to "Edit Profile ", edit_user_path %>
 
     <h3> My Routines </h3>
 
@@ -21,12 +21,12 @@
     <% end %>
     <br>
 
-    <%= button_to "Manage routines and entries", routines_path %>
+    <%= link_to "Manage routines and entries", routines_path %>
 
     <br>
     <br>
 
-    <%= button_to "Add Routine", new_routine_path%>
+    <%= link_to "Add Routine", new_routine_path%>
 <% else %>
     <h1> About <%= @user.user_name%> </h1>
 
