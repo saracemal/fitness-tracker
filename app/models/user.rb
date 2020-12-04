@@ -4,7 +4,7 @@ class User < ApplicationRecord
     
     has_many :entries
     has_many :routines, through: :entries
-    #has_many :likes, dependent: :destroy <-- most likely this one-- destroys likes if the entry or user is deleted 
+    has_many :likes, dependent: :destroy # <-- most likely this one-- destroys likes if the routine or user is deleted 
     
     has_secure_password 
     # validates :name, presence: true 

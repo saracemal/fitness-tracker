@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
     skip_before_action :authorized, only: [:new, :create]
 
+
     def index
         @users = User.all
     end
@@ -10,9 +11,15 @@ class UsersController < ApplicationController
         @entries = Entry.all
         @user_routines = UserRoutine.all
         
+        # Routines for self
         e = @entries.select{|entry| entry.user_id == cookies[:user_id].to_i}.map{|entry| entry.routine}.uniq 
         u = @user_routines.select{|ur| ur.user_id == cookies[:user_id].to_i}.map{|ur| ur.routine}.uniq 
         @unique_routines = [e, u].flatten.uniq
+
+        # Routines for other
+        e = @entries.select{|entry| entry.user_id == @user.id}.map{|entry| entry.routine}.uniq 
+        u = @user_routines.select{|ur| ur.user_id == @user.id}.map{|ur| ur.routine}.uniq 
+        @unique_routines_for_other = [e, u].flatten.uniq
 
     end
 
@@ -57,12 +64,12 @@ class UsersController < ApplicationController
         e = @entries.select{|entry| entry.user_id == @user.id}.map{|entry| entry.routine}.uniq 
         u = @user_routines.select{|ur| ur.user_id == @user.id}.map{|ur| ur.routine}.uniq 
         @unique_routines = [e, u].flatten.uniq
+
     end
 
     def routine_entries
         # Trying to find this user's id
         @routine = Routine.find(params[:id])
-        
     end
 
     private

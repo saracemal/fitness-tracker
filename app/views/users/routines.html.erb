@@ -1,9 +1,28 @@
 
 
-<%= @user.id %>
+<%= @user.id %><br>
+<% @unique_routines.each do |ur|%>
+   <%= ur.user_id%>
+<% end %>
 
 <h1><%= "#{@user.user_name}'s Routines" %></h1>
 
-<% @unique_routines.each do |ur| %>
-   <li><%= link_to ur.name, user_entry_path(ur) %></li>
-<% end %>
+<div class="routine-entry-container">
+   <% @unique_routines.each do |ur| %>
+      <ul>
+         <li>
+            <p>
+            Routine: <%= ur.name %><br>
+            <% ur.entries.each do |entry| %>
+               <% if entry.user_id == @user.id%>
+               <p>
+                  <%= "Title: #{entry.title}" %><br>
+                  <%= "Description: #{entry.description}" %>
+               </p>
+               <% end %>
+            <% end %>
+            </p>
+         </li>
+      </ul>
+   <% end %>
+</div>

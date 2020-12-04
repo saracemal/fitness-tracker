@@ -1,5 +1,9 @@
 <h1> List of Exercises </h1>
 
-<% @exercises.each do |exercise| %>
-    <li><%= link_to exercise.name, exercise_path(exercise) %></li>
-<% end %>
+<div class="index-container">
+    <% @exercises.each do |exercise| %>
+        <div class="index-tile">
+            <%= link_to exercise.name, exercise_path(exercise) %>
+        </div>
+    <% end %>
+</div>

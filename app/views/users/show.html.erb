@@ -1,51 +1,54 @@
 
-<% if @user.id == @current_user.id %>
-    <h1> About Me </h1>
+<div class="user_show">
+    <% if @user.id == @current_user.id %>
+        <h1> About Me </h1>
 
-    <h4> Name: <%= @user.name %></h4>
+        <h4> Username: <%= @user.user_name %></h4>
 
-    <h4> Age: <%= @user.age %></h4>
+        <h4> Name: <%= @user.name %></h4>
 
-    <h4> Weight: <%= @user.weight %> lbs. </h4>
+        <h4> Age: <%= @user.age %></h4>
 
-    <h4> Height: <%= @user.height %> inches </h4>
+        <h4> Weight: <%= @user.weight %> lbs. </h4>
 
-    <br>
-    <br>
-    <%= link_to "Edit Profile ", edit_user_path %>
+        <h4> Height: <%= @user.height %> inches </h4>
 
-    <h3> My Routines </h3>
+        <br>
+        <br>
+        <%= link_to "Edit Profile ", edit_user_path %>
 
-    <% @unique_routines.each do |ur| %>
-        <li><%= ur.name %></li>
+        <h3> My Routines </h3>
+
+        <% @unique_routines.each do |ur| %>
+            <li><%= ur.name %></li>
+        <% end %>
+        <br>
+
+        <%= link_to "Manage routines and entries", routines_path %>
+
+        <br>
+        <br>
+
+        <%= link_to "Add Routine", new_routine_path%>
+    <% else %>
+        <h1> About <%= @user.user_name%> </h1>
+
+        <h4> Name: <%= @user.name %></h4>
+
+        <h4> Age: <%= @user.age %></h4>
+
+        <h4> Weight: <%= @user.weight %> lbs. </h4>
+
+        <h4> Height: <%= @user.height %> inches </h4>
+
+        <h3> Their Routines </h3>
+
+        <% @unique_routines_for_other.each do |ur| %>
+            <li><%= ur.name %></li>
+        <% end %>
+
+        <br>
+        <%= link_to "See their routines and entries", user_page_path%>
+
     <% end %>
-    <br>
-
-    <%= link_to "Manage routines and entries", routines_path %>
-
-    <br>
-    <br>
-
-    <%= link_to "Add Routine", new_routine_path%>
-<% else %>
-    <h1> About <%= @user.user_name%> </h1>
-
-    <h4> Name: <%= @user.name %></h4>
-
-    <h4> Age: <%= @user.age %></h4>
-
-    <h4> Weight: <%= @user.weight %> lbs. </h4>
-
-    <h4> Height: <%= @user.height %> inches </h4>
-
-    <h3> Their Routines </h3>
-
-
-    <% @user.routines.uniq.each do |routine| %>
-        <li><%= routine.name %></li>
-    <% end %>
-    <br>
-    <%= link_to "See their routines and entries", user_page_path%>
-
-<% end %>
-
+</div>

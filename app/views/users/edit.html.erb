@@ -1,3 +1,4 @@
+<div class="form-container">
 <h1> Edit Profile </h1>
 
 <% if flash[:user_errors] %>
@@ -25,14 +26,15 @@
     <%= f.number_field :height %>
     <br>
     <br>
-    <%= f.hidden_field :user_name, value: :user_name%>
-    <%= f.hidden_field :password, value: :password%>
+    <%= f.label :user_name %>
+    <%= f.text_field :user_name %>
+    <br>
+    <br>
+    <%= f.label :password %>
+    <%= f.text_field :password %><br><br>
     <%= f.submit %>
 <% end %>
-
-
-
-
+</div>
 
 <br>
 <br>

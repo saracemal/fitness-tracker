@@ -1,4 +1,7 @@
 <h1><%= @routine.name %></h1>
+<%= button_to 'Like', routine_likes_path(@routine), method: :post %>
+<p><%= @routine.likes.count %> <%= (@routine.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+
 
 <% # We want to have the exercises for this routine listed here, and an entry field%>
 
@@ -51,20 +54,20 @@
 
 
 
-    <h2> Let the world know.. </h2>
+<h2> Let the world know.. </h2>
 
-    <%= form_for @entry do |f| %>
-        <%= f.label :title %> 
-        <%= f.text_field :title %>
-        <br>
-        <br>
-        <%= f.label :description %>
-        <%= f.text_area :description %>
-        <br>
-        <br>
-        <%= f.hidden_field :routine_id, value: @routine.id %>
-        <%= f.hidden_field :user_id, value: cookies[:user_id].to_i %>
+<%= form_for @entry do |f| %>
+    <%= f.label :title %> 
+    <%= f.text_field :title %>
+    <br>
+    <br>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+    <br>
+    <br>
+    <%= f.hidden_field :routine_id, value: @routine.id %>
+    <%= f.hidden_field :user_id, value: cookies[:user_id].to_i %>
 
-        <%= f.submit "Add entry" %>
-    <% end %>
+    <%= f.submit "Add entry" %>
+<% end %>
 

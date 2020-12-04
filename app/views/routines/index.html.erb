@@ -8,11 +8,13 @@ All routines ( delete later, for development purpose)
 
 
 Unique Routines for user
-<% @unique_routines.each do |routine|%>
-    <li><%= link_to routine.name, routine_path(routine) %></li>
-<% end %>
-<br>
-<br>
+<div class="index-container">
+    <% @unique_routines.each do |routine|%>
+        <li><%= link_to routine.name, routine_path(routine) %></li>
+    <% end %>
+</div>
+
+
 
 <% # We probably want routines to be sorted by date or something ?%>
 

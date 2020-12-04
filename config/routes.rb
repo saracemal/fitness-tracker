@@ -16,7 +16,13 @@ Rails.application.routes.draw do
   get 'users/:id/page', to: 'users#routines', as: 'user_page'
   get 'users/:id/page/entries/', to: 'users#routine_entries', as: 'user_entry'
 
+  get 'users/:user_id/page/entries/:entry_id', to: 'users#routine_entries', as: 'test'
+
   root to: 'pages#home'
+
+  resources :routines do
+    resources :likes
+  end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -1,30 +1,33 @@
-<h1> Add New Routine</h1>
-
-<%= form_for @user_routine do |f| %>
-    <%= f.label :routine %>
-    <%= f.collection_select :routine_id, Routine.all, :id, :name %>
-    <br>
-    <br>
-    <%= f.hidden_field :user_id, value: cookies[:user_id].to_i %>
-    <%= f.submit "Add Routine" %>
-<% end %>
 
 
-<h1> Create New Routine </h1>
+<div class="form-container">
+  <h1> Add New Routine</h1>
+  <%= form_for @user_routine do |f| %>
+      <%= f.label :routine %>
+      <%= f.collection_select :routine_id, Routine.all, :id, :name %>
+      <br>
+      <br>
+      <%= f.hidden_field :user_id, value: cookies[:user_id].to_i %>
+      <%= f.submit "Add Routine" %>
+  <% end %>
 
-<% if flash[:routine_errors] %>
-  <ul>
-    <% flash[:routine_errors].each do |error| %>
-      <li><%= error %></li>
-    <% end%>
-  </ul>
-<% end%>
 
-<%= form_for @routine do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-    <br>
-    <br>
-    <%= f.hidden_field :user_id, value: cookies[:user_id].to_i %>
-    <%= f.submit "Create Routine" %>
-<% end %>
+  <h1> Create New Routine </h1>
+
+  <% if flash[:routine_errors] %>
+    <ul>
+      <% flash[:routine_errors].each do |error| %>
+        <li><%= error %></li>
+      <% end%>
+    </ul>
+  <% end%>
+
+  <%= form_for @routine do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+      <br>
+      <br>
+      <%= f.hidden_field :user_id, value: cookies[:user_id].to_i %>
+      <%= f.submit "Create Routine" %>
+  <% end %>
+</div>
