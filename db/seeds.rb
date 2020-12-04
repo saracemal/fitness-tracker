@@ -27,8 +27,10 @@ exercises = [
     'sit up', 'pull up', 'chin up', 'walk'
 ]
 
+difficulty = ['Easy', 'Intermediate', 'Hard']
+
 exercises.each do |exercise|
-    Exercise.create(name: exercise)
+    Exercise.create(name: exercise, difficulty: difficulty.sample)
 end
 
 

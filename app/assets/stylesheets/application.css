@@ -14,7 +14,8 @@
  *= require_self
  */
 
- body {
+
+  body {
     /* background-image: url("https://i.pinimg.com/originals/2c/37/53/2c37538ad1d9a09852c9ec8638c5fa8b.png");
     background-repeat: no-repeat;
     background-size: cover; */
@@ -92,28 +93,32 @@
  
    /* --------------CSS for background on every page --------------------- */
  
- .container {
+ /* .container {
    margin: 5px auto;
    max-width: 87%;
    background-color: rgba(255,255,255,0.4);
    padding: 10px;
    border-radius: 25px;
    height: 100%;
- }
+ } */
+ .jumbotron.jumbotron-fluid {
+  background-color: rgba(255,255,255,0.4);
+  border-radius: 25px;
+  }
  
  /* ------------- CSS for Forms ------------ */
  
  .form-container {
    max-width: 300px;
-   margin: 0px auto;
-   background-color: rgba(62, 7, 79, 0.2);
+   margin: 20px auto;
+   background-color: rgba(255,255,255,0.4);
    padding: 20px;
    border-radius: 25px;
    text-align: center;
  }
  
  .form-btn {
-   background-color: purple;
+   background-color: rgba(43, 62, 122, 0.781);
    margin-top: 10px;
    border-radius: 25px;
  }
@@ -182,12 +187,43 @@
   transform: translate(-50%, -50%);
   border: 5px solid #FFFF00;
   padding: 10px;
+ }
+
+ .show {
+   color: white;
+ }
 
   /* My CSS */
 
+  /* Style the buttons that are used to open and close the accordion panel */
+  .accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+  }
 
-  
-}
+  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+  .active, .accordion:hover {
+  background-color: #ccc;
+  }
+
+  /* Style the accordion panel. Note: hidden by default */
+  .panel {
+  padding: 0 18px;
+  background-color: white;
+  display: none;
+  overflow: hidden;
+  }
+
+
+
+
 
 
 

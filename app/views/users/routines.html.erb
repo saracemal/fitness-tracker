@@ -7,12 +7,12 @@
 
 <h1><%= "#{@user.user_name}'s Routines" %></h1>
 
-<div class="routine-entry-container">
    <% @unique_routines.each do |ur| %>
       <ul>
          <li>
             <p>
-            Routine: <%= ur.name %><br>
+            <button class="accordian">Routine: <%= ur.name %></button>
+            <div class="panel">
             <% ur.entries.each do |entry| %>
                <% if entry.user_id == @user.id%>
                <p>
@@ -21,8 +21,8 @@
                </p>
                <% end %>
             <% end %>
+            </div>
             </p>
          </li>
       </ul>
    <% end %>
-</div>

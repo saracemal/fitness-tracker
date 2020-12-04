@@ -1,11 +1,12 @@
 
 
 
-<h1> Login </h1>
-<h3> Welcome Back! </h3>
 
-<h1>Test</h1>
+
+
 <div class="form-container">
+<h1> Login </h1>
+<%#<h3> Welcome Back! </h3>%>
   <%= form_for :session, url: login_path do |f| %>
     <div class="form-input">
       <%= f.label :user_name %>
@@ -26,3 +27,5 @@
   <% end %>
 
 </div>
+
+
