@@ -1,9 +1,8 @@
+<br>
 <h1> List of Exercises </h1>
 
-<div class="index-container">
+<div class="list-group">
     <% @exercises.each do |exercise| %>
-        <div class="index-tile">
-            <%= link_to exercise.name, exercise_path(exercise) %>
-        </div>
+            <li class="list-group-item"><%= link_to exercise.name, exercise_path(exercise) %></li>
     <% end %>
 </div>

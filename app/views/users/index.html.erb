@@ -1,6 +1,25 @@
 <% # DISCOVER PAGE %>
-<h1> Discover </h1>
+<h1> Interested in seeing how others are doing?</h1>
+<br>
+<h3> Below, you can browse users
+<br>
+<br>
 
+<%#
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+    <% @users.each do |u| 
+    <div class="card-body">
+    
+        <h5 class="card-title"><%= link_to u.user_name, user_path(u) </h5>
+        <p class="card-text">Some text placeholder.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+    <% end 
+</div>
+%>
+
+<%# want image for tiles %>
 <div class="index-container">
     <% @users.each do |u| %>
         <div class="index-tile">

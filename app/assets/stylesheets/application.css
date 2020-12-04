@@ -19,7 +19,8 @@ body {
     background-repeat: no-repeat;
     background-size: cover; */
  
-    background-color: rgba(8, 30, 41, 0.836)
+    /* background-color: rgba(8, 30, 41, 0.836) */
+    background-color: rgba(255, 255, 255, 0.836)
     /*1, 80, 113, 0.4*/
   }
    
@@ -36,10 +37,10 @@ body {
    
     .banner {
       width: 90%;
-      height: 200px;
-      line-height: 200px;
+      height: 400px;
+      line-height: 400px;
       text-align: center;
-      background-image: url(https://img.wallpapersafari.com/desktop/1920/1080/19/23/z7MdVL.jpg);
+      background-image: url(https://www.canva.com/design/DAEPZPo2goQ/u_uBjha6tF7CAHzrGxdSEg/view?utm_content=DAEPZPo2goQ&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink;
       background-repeat: no-repeat;
       background-size: cove;
       margin: 0px auto;
@@ -47,9 +48,11 @@ body {
  
     #banner-header {
      margin: 0px;
-     font-size: 5em;
-     color: transparent;
+     font-size: 10em;
+     color: ;
      -webkit-text-stroke: 2px rgb(0, 199, 249);
+     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
+     ;
      /* line-height: 200px; */
    }
   
@@ -78,7 +81,7 @@ body {
    
     .nav li:hover {
       background-color: rgba(255,255,255,0.4);
-      transition: .5s;
+      transition: .3s;
       border-radius: 25px;
     }
    
@@ -89,27 +92,33 @@ body {
    }
    
    
-   .right {
+   .nav li :right {
      float: right;
+
    }
  
    /* --------------CSS for background on every page --------------------- */
  
- .container {
+ /* .container {
    margin: 5px auto;
    max-width: 87%;
    background-color: rgba(255,255,255,0.4);
    padding: 10px;
    border-radius: 25px;
    height: 100%;
- }
+ } */
+ .jumbotron.jumbotron-fluid {
+  background-color: rgba(255,255,255,0.4);
+  border-radius: 25px;
+  }
  
  /* ------------- CSS for Forms ------------ */
  
  .form-container {
-   max-width: 300px;
-   margin: 0px auto;
-   background-color: rgba(62, 7, 79, 0.2);
+   max-width: 450px;
+   margin: 20px auto;
+   background-color: #343a40;
+   color: whitesmoke;
    padding: 20px;
    border-radius: 25px;
    text-align: center;
@@ -117,31 +126,47 @@ body {
  }
  
  .form-btn {
-   background-color: purple;
+   background-color: rgba(43, 62, 122, 0.781);
    margin-top: 10px;
    border-radius: 25px;
    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
    font-size: x-small;
+   
  }
  
  .form-input {
    margin-top: 10px;
  }
+
+ .container-fluid  {
+  margin: 20px auto;
+  padding: 10px 10px;
+  border: 1px solid black;
+ }
  
  
    /*------------------------Index Page CSS ----------------------  */
- 
+
+
+  .card-body {
+    display: flex;
+    flex-flow: row wrap;
+    overflow: scroll;
+    padding: 10px 10px;
+    margin: 10px 10px;
+  }
+  
   .index-container {
-   max-height: 100vh;
-   overflow: scroll;
-   display: flex;
-   flex-flow: row wrap;
-   /* background-color: rgba(255,255,255,0.4); */
-   padding: 0px 10px 0px 10px;
-   margin: 0px auto;
-   border-radius: 25px; 
-   justify-content: space-evenly;
- }
+  max-height: 100vh;
+  overflow: scroll;
+  display: flex;
+  flex-flow: row wrap;
+  /* background-color: rgba(255,255,255,0.4); */
+  padding: 0px 10px 0px 10px;
+  margin: 0px auto;
+  border-radius: 25px; 
+  justify-content: space-evenly;
+  }
  
  .index-tile {
    background-color: rgba(62, 7, 79, 0.2);
@@ -150,7 +175,7 @@ body {
    margin: 10px;
    border-radius: 25px; 
  }
- 
+ /*
  .index-tile:hover {
    border: 3px solid rgb(62, 7, 79); 
    background-color: rgba(62, 7, 79, 0.2);
@@ -169,9 +194,9 @@ body {
    max-width: 250px;
  }
  
- .index-tile a {
+ /* .index-tile a {
    text-decoration: none;
- }
+ } 
  
  
  .show-container {
@@ -188,12 +213,44 @@ body {
   transform: translate(-50%, -50%);
   border: 5px solid #FFFF00;
   padding: 10px;
+ }
+
+ .show {
+   color: white;
+ }*/
 
   /* My CSS */
 
+  /* Style the buttons that are used to open and close the accordion panel */
+  .accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+  }
 
-  
-}
+  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+  .active, .accordion:hover {
+  background-color: #ccc;
+  }
+
+  /* Style the accordion panel. Note: hidden by default */
+  .panel {
+  padding: 0 18px;
+  background-color: white;
+  display: none;
+  overflow: hidden;
+  }
+
+
+
+
+
 
 
 

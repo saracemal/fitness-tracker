@@ -40,6 +40,7 @@ class EntriesController < ApplicationController
         @entry.update(entry_params)
 
         redirect_to entry_path(@entry)
+        #redirect_back(fallback_location: entry_path(@entry))
     end
 
     private

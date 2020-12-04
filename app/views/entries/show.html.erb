@@ -1,14 +1,17 @@
 <h1><%= @entry.routine.name %> Entry </h1>
 
-<h2>Title: <%= @entry.title %></h2>
+<div class="container-fluid">
+    <h2>Title: <%= @entry.title %></h2>
 
-<p>
-Description: <br><br>
-<%= @entry.description%>
-</p>
+    <p>
+    Description: <br><br>
+    <%= @entry.description%>
+    </p>
 
-<br>
-<br>
-<%= link_to "Edit Entry", edit_entry_path(@entry) %>
-
-<h4>User: <%= link_to @entry.user.name, user_path(@entry.user) %></h4>
+    <br>
+    <br>
+    <a class="btn btn-primary" href="/entries/<%=@entry.id%>/edit/" role="button">Edit Entry</a>
+    <br>
+    <br>
+    <h4>Author: <%= link_to @entry.user.name, user_path(@entry.user) %></h4>
+</div>

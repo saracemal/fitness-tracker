@@ -1,73 +1,109 @@
-<h1><%= @routine.name %></h1>
-<%= button_to 'Like', routine_likes_path(@routine), method: :post %>
-<p><%= @routine.likes.count %> <%= (@routine.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+<div class=container-fluid>
+    <h1><%= @routine.name %></h1>
+    <%= button_to 'Like', routine_likes_path(@routine), method: :post %>
+    <p><%= @routine.likes.count %> <%= (@routine.likes.count) == 1 ? 'Like' : 'Likes'%></p>
 
 
-<% # We want to have the exercises for this routine listed here, and an entry field%>
+    <% # We want to have the exercises for this routine listed here, and an entry field%>
 
-<h3> Exercises in this routine </h3>
-<% @routine.routine_exercises.each do |re| %>
-    <ul>
-    <li>
-        Exercise: <%= link_to re.exercise.name.capitalize, exercise_path(re.exercise) %><br>
-        Repetitions: <%= re.reps%>
-        <% if @routine.user_id == cookies[:user_id].to_i %>
-            <%= button_to "Edit Exercise", edit_routine_exercise_path(re), method: :get%>
-        <% end %>
-    </li>
-    </ul>
-<% end %>
+    <h3> Exercises in this routine </h3>
 
-<% if @routine.user_id == cookies[:user_id].to_i %>
-    <h3> Add an exercise </h3>
-
-    <%= form_for @routine_exercise do |f| %>
-        <%= f.label :exercise %>
-        <%= f.collection_select :exercise_id, Exercise.all, :id, :name %>
-        <br>
-        <br>
-        <%= f.label :reps %>
-        <%= f.number_field :reps %>
-        <br>
-        <br>
-        <%= f.submit "Add Exercise" %>
-
-        <%= f.hidden_field :routine_id, value: @routine.id%>
-    <% end %>
-<% end %>
-<br>
-<br>
-<hr>
-
-<h3> Journal </h3> needs to be sorted by date, most recent at top
-
-<% @routine.entries.each do |entry| %>
-    <% if entry.user_id == cookies[:user_id].to_i%>
-        <ul>
-            <li>
-            <%= link_to entry.title, entry_path(entry) %><br><br>
-            <%= entry.description %>
+    <% @routine.routine_exercises.each do |re| %>
+        <ul class="list-group">
+            <li class="list-group-item">
+                Exercise: <%= link_to re.exercise.name.capitalize, exercise_path(re.exercise) %><br>
+                Repetitions: <%= re.reps%>
+                <% if @routine.user_id == cookies[:user_id].to_i %>
+                    <%= button_to "Edit Exercise", edit_routine_exercise_path(re), method: :get%>
+                <% end %>
             </li>
         </ul>
+        <br>
     <% end %>
-<% end %>
 
+    <%#form div here%>
+    <% if @routine.user_id == cookies[:user_id].to_i %>
+        <h3> Add an exercise </h3>
 
+        <%= form_for @routine_exercise do |f| %>
+            <%= f.label :exercise %>
+            <%= f.collection_select :exercise_id, Exercise.all, :id, :name %>
+            <br>
+            <br>
+            <%= f.label :reps %>
+            <%= f.number_field :reps %>
+            <br>
+            <br>
+            <%= f.submit "Add Exercise" %>
 
-<h2> Let the world know.. </h2>
-
-<%= form_for @entry do |f| %>
-    <%= f.label :title %> 
-    <%= f.text_field :title %>
+            <%= f.hidden_field :routine_id, value: @routine.id%>
+        <% end %>
+    <% end %>
     <br>
     <br>
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-    <br>
-    <br>
-    <%= f.hidden_field :routine_id, value: @routine.id %>
-    <%= f.hidden_field :user_id, value: cookies[:user_id].to_i %>
+</div>
 
-    <%= f.submit "Add entry" %>
-<% end %>
+<div class="container-fluid">
+    <h3> Journal </h3> needs to be sorted by date, most recent at top
+    <%#Accordion here%>
+    <% @routine.entries.each do |entry| %>
+        <% if entry.user_id == cookies[:user_id].to_i%>
+            <ul>
+                <li>
+                <%= link_to entry.title, entry_path(entry) %><br><br>
+                <%= entry.description %>
+                </li>
+            </ul>
+        <% end %>
+    <% end %>
 
+<p>
+    <% @routine.entries.reverse.each do |entry| %>
+        <% if entry.user_id == cookies[:user_id].to_i%>
+            <% entry_id = entry.title.downcase.gsub(" ", "-")%>
+            <p>
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#<%= entry_id %>" aria-expanded="false" aria-controls="collapseExample">
+                    <%= entry.title %>
+                </button>
+
+                <div class="collapse" id= "<%= entry_id %>" >
+                    <div class="card card-body">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <%= "Description:  "%><br>
+                                <%= "#{entry.description}" %><br><br>
+                                <a class="btn btn-primary" href="/entries/<%=entry.id%>/edit/" role="button">Edit Entry</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </p>
+        <% end %>
+    <% end %>
+</p>
+
+
+
+
+    <%#Don't like this form%>
+    <div class="form-container">
+    <h2> Let the world know.. </h2>
+
+    <%= form_for @entry do |f| %>
+        <div class="form-input">
+            <%= f.label :title %> 
+            <%= f.text_field :title %>
+        </div>  
+        <br>
+        <div class="form-input">
+            <%= f.label :description %>
+            <%= f.text_area :description %>
+        </div>
+
+        <%= f.hidden_field :routine_id, value: @routine.id %>
+        <%= f.hidden_field :user_id, value: cookies[:user_id].to_i %>
+
+        <%= f.submit "Add entry" %>
+    <% end %>
+    <div>
+<div>

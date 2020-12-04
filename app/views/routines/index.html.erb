@@ -1,17 +1,18 @@
 
 <h1>Your Routines</h1>
 
-All routines ( delete later, for development purpose)
-<% @routines.each do |routine| %>
-    <li><%= link_to routine.name, routine_path(routine) %></li>
-<% end %><br><br>
 
-
-Unique Routines for user
-<div class="index-container">
+<div class="list-group">
     <% @unique_routines.each do |routine|%>
-        <li><%= link_to routine.name, routine_path(routine) %></li>
+        <li class="list-group-item"><%= link_to routine.name, routine_path(routine) %></li>
     <% end %>
+</div>
+
+<div>
+    All routines ( delete later, for development purpose)
+    <% @routines.each do |routine| %>
+        <li><%= link_to routine.name, routine_path(routine) %></li>
+    <% end %><br><br>
 </div>
 
 

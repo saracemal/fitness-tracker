@@ -1,11 +1,14 @@
 
 
 
-<h1> Login </h1>
-<h3> Welcome Back! </h3>
 
-<h1>Test</h1>
+
 <div class="form-container">
+  <h1> Login </h1>
+  <% if flash[:errors] %>
+    <%= flash[:errors] %>
+  <% end %>
+  <%#<h3> Welcome Back! </h3>%>
   <%= form_for :session, url: login_path do |f| %>
     <div class="form-input">
       <%= f.label :user_name %>
@@ -17,7 +20,7 @@
         <%= f.password_field :password %>
     </div>
 
-    <%= f.submit class: "form-btn" %>
+    <%= f.submit "Log In", class: "form-btn" %>
 
     <br>
     <br>
@@ -26,3 +29,5 @@
   <% end %>
 
 </div>
+
+
