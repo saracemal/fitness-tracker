@@ -126,22 +126,27 @@
  .form-input {
    margin-top: 10px;
  }
+
+ .container-fluid  {
+  margin: auto -100px 0px;
+  border: 1px solid black;
+ }
  
  
    /*------------------------Index Page CSS ----------------------  */
- 
-  .index-container {
+  
+  /* .index-container {
    max-height: 100vh;
    overflow: scroll;
    display: flex;
-   flex-flow: row wrap;
+   flex-flow: row wrap; */
    /* background-color: rgba(255,255,255,0.4); */
-   padding: 0px 10px 0px 10px;
+   /* padding: 0px 10px 0px 10px;
    margin: 0px auto;
    border-radius: 25px; 
    justify-content: space-evenly;
- }
- 
+ } */
+ /*
  .index-tile {
    background-color: rgba(62, 7, 79, 0.2);
    text-align: center;
@@ -168,9 +173,9 @@
    max-width: 250px;
  }
  
- .index-tile a {
+ /* .index-tile a {
    text-decoration: none;
- }
+ } 
  
  
  .show-container {
@@ -191,7 +196,7 @@
 
  .show {
    color: white;
- }
+ }*/
 
   /* My CSS */
 
@@ -220,6 +225,7 @@
   display: none;
   overflow: hidden;
   }
+
 
 
 

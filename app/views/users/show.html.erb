@@ -1,6 +1,7 @@
 
-<div class="show">
+    <div class="container-fluid">
     <% if @user.id == @current_user.id %>
+
         <h1> About Me </h1>
 
         <h4> Username: <%= @user.user_name %></h4>
@@ -51,4 +52,5 @@
         <%= link_to "See their routines and entries", user_page_path%>
 
     <% end %>
-</div>
+    <div>
+

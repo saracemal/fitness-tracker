@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
             redirect_to user_path(user)
         else
             #flash[:errors] = user.errors.full_messages
-            redirect_to new_user_path
+            redirect_to new_login_path
         end
     end
 
