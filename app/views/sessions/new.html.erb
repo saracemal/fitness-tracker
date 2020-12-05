@@ -4,7 +4,9 @@
 
 
 <div class="form-container">
+  <div class="h1"
   <h1> Login </h1>
+  </div>
   <% if flash[:errors] %>
     <%= flash[:errors] %>
   <% end %>
@@ -24,7 +26,9 @@
 
     <br>
     <br>
+    <div class="form-btn-2">
     <%= button_to "New User? Sign Up! 🖋 ", new_user_path %>
+    </div>
     
   <% end %>
 

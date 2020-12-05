@@ -23,8 +23,8 @@ require 'json'
 
 
 exercises = [
-    'bench press', 'squat', 'dead lift', 'jog', 'back row', 'bicep curl',
-    'sit up', 'pull up', 'chin up', 'walk'
+    'Bench Press', 'Squat', 'Dead Lift', 'Jog', 'Back Row', 'Bicep Curl',
+    'Sit Up', 'Pull Up', 'Chin Up', 'Walk'
 ]
 
 difficulty = ['Easy', 'Intermediate', 'Hard']
