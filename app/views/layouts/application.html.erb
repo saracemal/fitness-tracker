@@ -12,6 +12,7 @@
 
   <body>
 
+  <% if @current_user %>
     <%#banner%>
     <div class="banner">
       <%# image_tag "cats_tinder.gif", class: "banner-img" %>
@@ -19,45 +20,41 @@
     </div>
 
         <%# bootstrap nav bar%>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href=""></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href=""></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <% if controller_name == "pages" && action_name == "home" %>
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Sign Up", new_user_path %></li>
-        <li><%= link_to "Login", new_login_path %></li>
-      </ul>
-      <% else %>
-      <ul class="nav navbar-nav">
-        <li><%= link_to "Discover", users_path %></li>
-        <li><%= link_to "My Routines", routines_path %></li>
-        <li><%= link_to "Exercises", exercises_path %></li>
-        <li><%= link_to "Create An Exercise", new_exercise_path %></li>
-        <li><%= link_to "New Routine", new_routine_path %></li>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <% if controller_name == "pages" && action_name == "home" %>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "Sign Up", new_user_path %></li>
+            <li><%= link_to "Login", new_login_path %></li>
+          </ul>
+        <% else %>
+        <ul class="nav navbar-nav">
+          <li><%= link_to "Discover", users_path %></li>
+          <li><%= link_to "My Routines", routines_path %></li>
+          <li><%= link_to "Exercises", exercises_path %></li>
+          <li><%= link_to "Create An Exercise", new_exercise_path %></li>
+          <li><%= link_to "New Routine", new_routine_path %></li>
+          </ul>
+        <% end %>
+
+        <% if @current_user %>
+        <ul class="nav navbar-nav navbar-right">
+          <li> <div class="right"><%= link_to "Logout", logout_path, method: :delete  %></div></li>
+          <li> <div class="right">Welcome <%= link_to @current_user.name, user_path(@current_user.id) %></div></li>
         </ul>
-      <% end %>
-      <% if @current_user %>
-      <ul class="nav navbar-nav navbar-right">
-        <li> <div class="right"><%= link_to "Logout", logout_path, method: :delete  %></div></li>
-        <li> <div class="right">Welcome <%= link_to @current_user.name, user_path(@current_user.id) %></div></li>
-      <% else %>
-      
+        <% end %>
+      </div>
+    </nav>
   <% end %>
-  </ul>
-    
+
+  <div>
+    <%= yield %>
   </div>
-  </nav>
-
-<%# Current nav bar%>
-    
-
-    <div class="container">
-      <%= yield %>
-    </div>
 
     <%# boostrap stuff don't delete%>
 

@@ -22,13 +22,11 @@
         <%= f.password_field :password %>
     </div>
 
-    <%= f.submit "Log In", class: "form-btn" %>
+    <%= f.submit "Log In", class: "btn btn-light" %>
 
     <br>
     <br>
-    <div class="form-btn-2">
-    <%= button_to "New User? Sign Up! 🖋 ", new_user_path %>
-    </div>
+    <a class="btn btn-light" href="/users/new/" role="button">New User? Sign Up! 🖋 </a>
     
   <% end %>
 

@@ -1,9 +1,9 @@
+
+<h1><%= @routine.name %></h1>
+<%= button_to 'Like', routine_likes_path(@routine), method: :post %>
+<p><%= @routine.likes.count %> <%= (@routine.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+
 <div class=container-fluid>
-    <h1><%= @routine.name %></h1>
-    <%= button_to 'Like', routine_likes_path(@routine), method: :post %>
-    <p><%= @routine.likes.count %> <%= (@routine.likes.count) == 1 ? 'Like' : 'Likes'%></p>
-
-
     <% # We want to have the exercises for this routine listed here, and an entry field%>
 
     <h3> Exercises in this routine </h3>
@@ -86,7 +86,7 @@
 
 
     <%#Don't like this form%>
-    <div class="form-container">
+    <div class="entry-form">
     <h2> Let the world know.. </h2>
 
     <%= form_for @entry do |f| %>
