@@ -28,27 +28,35 @@
 
   <%# <div class="container-fluid"> %>
     <div class="wel-div2"> 
-      <h1>Welcome to Gym Flame 🔥👋🏽</h1>
+      <div class="jumbotron jumbotron-fluid">
+        <h1>Welcome to Gym Flame 🔥👋🏽</h1>
 
-      <br>
-      <h3><p>With us, you can keep track of your fitness journey and share it with others.</p></h3>
-      <br>
+        <br>
+        <h3><p>With us, you can keep track of your fitness journey and share it with others.</p></h3>
+        <br>
 
-      <h4>
-        <p>
-        Join individuals who have shown proven results by using the routines and exercises created by
-        your peers in our community! You are able to use the routines included, or create your own
-        by adding exercises to your own routines. Use the attached journal entries to track your
-        journey with us, and compare your 💪🏽 gains 💪🏽 with the rest of the community! 
-        </p>
-      </h4>
-      <br>
-      <br>
-      <h4><p>So... what are you waiting for? JOIN 🔥 <b>GYM FLAME</b> 🔥 NOW! </h4></p>
-      <br>
-
-      <p>To get started, you can either <%= link_to "sign in", new_login_path %> or <%= link_to "create a profile", new_user_path %> to start sharing your 🏋️ gainz 🏋️.</p>
-    
+        <h4>
+          <p>
+          Join individuals who have shown proven results by using the routines and exercises created by
+          your peers in our community! You are able to use the routines included, or create your own
+          by adding exercises to your own routines. Use the attached journal entries to track your
+          journey with us, and compare your 💪🏽 gains 💪🏽 with the rest of the community! 
+          </p>
+        </h4>
+        <br>
+        <br>
+        <h4><p>So... what are you waiting for? JOIN 🔥 <b>GYM FLAME</b> 🔥 NOW! </h4></p>
+        <br>
+        <h4>
+          <p>
+            To get started, you can either 
+            <a class="btn btn-primary" href="/session/new" role="button">Sign In</a> 
+            or 
+            <a class="btn btn-primary" href="/users/new/" role="button">Sign Up</a> 
+            to start sharing your 🏋️ gainz 🏋️.
+          </p>
+        </h4>
+      </div>
     </div>
   <%# </div> %>
 </div>

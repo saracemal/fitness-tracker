@@ -55,7 +55,7 @@ body {
       color: rgb(122, 59, 59);
       -webkit-text-stroke: 2px rgb(249, 170, 0);
       font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
-      ;
+      font-family: sans-serif;
       /* line-height: 200px; */
     }
   
@@ -119,9 +119,9 @@ body {
    height: 100%;
  } 
  .jumbotron.jumbotron-fluid {
-  background-color: rgba(255,255,255,0.4);
+  background-color: rgba(255, 255, 255, 0.4);
   border-radius: 25px;
-  max-width: 87%;
+  max-width: 80%;
   margin: 5px auto;
   text-align: center;
   }
@@ -217,7 +217,7 @@ body {
   }
   .wel-div2 { 
     grid-area: 1 / 3 / 6 / 5; 
-    color: rgba(0, 0, 0, 0.712);
+    color: rgba(182, 41, 41, 0.795);
     text-align: center;
     margin-top: 100px;
     margin-right: 50px;
