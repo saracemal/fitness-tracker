@@ -7,17 +7,25 @@
             <li class="list-group-item"><%= link_to routine.name, routine_path(routine) %></li>
         <% end %>
     </div>
+    <br>
+    <br>
 
-    <div>
-        All routines ( delete later, for development purpose)
-        <% @routines.each do |routine| %>
-            <li><%= link_to routine.name, routine_path(routine) %></li>
-        <% end %><br><br>
+    <button class="btn btn-light" type="button" data-toggle="collapse" data-target="#routines" aria-expanded="false" aria-controls="collapseExample">
+            View All Routines
+    </button>
+
+    <div class="collapse" id= "routines" >
+        <div class="list-group">
+            <% @routines.each do |routine| %>
+                <li class="list-group-item"><%= link_to routine.name, routine_path(routine) %></li>
+            <% end %><br><br>
+        </div>
     </div>
+
 </div>
 
 
 
 <% # We probably want routines to be sorted by date or something ?%>
 
-# We can create a method in the routine model like sort_by 
+<%# # We can create a method in the routine model like sort_by  %>

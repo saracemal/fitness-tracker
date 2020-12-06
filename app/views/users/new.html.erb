@@ -1,40 +1,47 @@
+<div class="welcome-container">
+  <div class="wel-div1">
+    <img src="https://i.pinimg.com/originals/0f/41/08/0f4108c1ddeeea37ff9f6f0f49ac6007.jpg">
+  </div>
 
-<div class="form-container">
-  <h1>Create a New User </h1> 
+  <div class="wel-div2">
+    <div class="form-container">
+      <h1>Create a New User </h1> 
 
-  <% if flash[:user_errors] %>
-    <ul>
-      <% flash[:user_errors].each do |error| %>
-        <li><%= error %></li>
+      <% if flash[:user_errors] %>
+        <ul>
+          <% flash[:user_errors].each do |error| %>
+            <li><%= error %></li>
+          <% end%>
+        </ul>
       <% end%>
-    </ul>
-  <% end%>
 
-  <%= form_for @user do |f| %>
-      <%= f.label :user_name %>
-      <%= f.text_field :user_name %>
-      <br>
-      <br>
-      <%= f.label :password %>  
-      <%= f.password_field :password %>
-      <br>
-      <br>
-      <%= f.label :name %>  
-      <%= f.text_field :name %>
-      <br>
-      <br>
-      <%= f.label :age %>
-      <%= f.number_field :age %>
-      <br>
-      <br>
-      <%= f.label :weight %> (in pounds)
-      <%= f.number_field :weight %>
-      <br>
-      <br>
-      <%= f.label :height %> (in inches)
-      <%= f.number_field :height %>
-      <br>
-      <br>
-      <%= f.submit class: "btn btn-light" %>
-  <% end %>
+      <%= form_for @user do |f| %>
+          <%= f.label :user_name %>
+          <%= f.text_field :user_name %>
+          <br>
+          <br>
+          <%= f.label :password %>  
+          <%= f.password_field :password %>
+          <br>
+          <br>
+          <%= f.label :name %>  
+          <%= f.text_field :name %>
+          <br>
+          <br>
+          <%= f.label :age %>
+          <%= f.number_field :age %>
+          <br>
+          <br>
+          <%= f.label :weight %> (in pounds)
+          <%= f.number_field :weight %>
+          <br>
+          <br>
+          <%= f.label :height %> (in inches)
+          <%= f.number_field :height %>
+          <br>
+          <br>
+          <%= f.submit class: "btn btn-light" %>
+      <% end %>
+    </div>
+  </div>
 </div>
