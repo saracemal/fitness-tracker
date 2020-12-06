@@ -1,35 +1,37 @@
-
-
-
-
-
-<div class="form-container">
-  <div class="h1"
-  <h1> Login </h1>
+<div class="welcome-container">
+  <div class="wel-div1">
+    <img src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/man-exercising-weight-training-workout-fitness-pablo-romero.jpg">
   </div>
-  <% if flash[:errors] %>
-    <%= flash[:errors] %>
-  <% end %>
-  <%#<h3> Welcome Back! </h3>%>
-  <%= form_for :session, url: login_path do |f| %>
-    <div class="form-input">
-      <%= f.label :user_name %>
-      <%= f.text_field :user_name %>
+
+
+  <div class="wel-div2">
+    <div class="form-container">
+      <div class="h1">
+      <h1> Login </h1>
+      </div>
+      <% if flash[:errors] %>
+        <%= flash[:errors] %>
+      <% end %>
+      <%#<h3> Welcome Back! </h3>%>
+      <%= form_for :session, url: login_path do |f| %>
+        <div class="form-input">
+          <%= f.label :user_name %>
+          <%= f.text_field :user_name %>
+        </div>
+
+        <div class="form-input">
+            <%= f.label :password %>
+            <%= f.password_field :password %>
+        </div>
+
+        <%= f.submit "Log In", class: "btn btn-light" %>
+
+        <br>
+        <br>
+        <a class="btn btn-light" href="/users/new/" role="button">New User? Sign Up! 🖋 </a>
+        
+      <% end %>
     </div>
-
-    <div class="form-input">
-        <%= f.label :password %>
-        <%= f.password_field :password %>
-    </div>
-
-    <%= f.submit "Log In", class: "btn btn-light" %>
-
-    <br>
-    <br>
-    <a class="btn btn-light" href="/users/new/" role="button">New User? Sign Up! 🖋 </a>
-    
-  <% end %>
-
+  </div>
 </div>
-
 

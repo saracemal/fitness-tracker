@@ -103,10 +103,9 @@ body {
     }
    
    
-   .nav li :right {
+   /*.nav li :right {
      float: right;
-
-   }
+   }*/
 
    /* p {
      text-align: center;
@@ -229,6 +228,10 @@ body {
 
   .wel-div2 p {
     
+  }
+
+  .discover-head {
+    color: white;
   }
  
  
