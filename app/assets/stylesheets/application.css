@@ -99,10 +99,9 @@ body {
     }
    
    
-   .nav li :right {
+   /*.nav li :right {
      float: right;
-
-   }
+   }*/
 
    /* p {
      text-align: center;
