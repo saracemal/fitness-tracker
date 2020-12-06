@@ -1,30 +1,33 @@
-<% # DISCOVER PAGE %>
-<h1><p> Interested in seeing how others are doing?</p></h1>
-<br>
-<h3><p> Below, you can browse users, view their profiles, and see what routines they have been using. </p></h3>
-<h3><p>Who knows -- maybe you will get some fit-spo from fellow members in your community! 🚵🏼 </p></h3>
-<br>
-<br>
+<div class="container">
+    <% # DISCOVER PAGE %>
+    <h1><p> Interested in seeing how others are doing?</p></h1>
+    <br>
+    <h3><p> Below, you can browse users, view their profiles, and see what routines they have been using. </p></h3>
+    <h3><p>Who knows -- maybe you will get some fit-spo from fellow members in your community! 🚵🏼 </p></h3>
+    <br>
+    <br>
 
-<%#
-<div class="card" style="width: 18rem;">
-    <img class="card-img-top" src=".../100px180/" alt="Card image cap">
-    <% @users.each do |u| 
-    <div class="card-body">
-    
-        <h5 class="card-title"><%= link_to u.user_name, user_path(u) </h5>
-        <p class="card-text">Some text placeholder.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-    <% end 
-</div>
-%>
-
-<%# want image for tiles %>
-<div class="index-container">
-    <% @users.each do |u| %>
-        <div class="index-tile">
-            <%= link_to u.user_name, user_path(u) %>
+    <%#
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+        <% @users.each do |u| 
+        <div class="card-body">
+        
+            <h5 class="card-title"><%= link_to u.user_name, user_path(u) </h5>
+            <p class="card-text">Some text placeholder.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
-    <% end %>
+        <% end 
+    </div>
+    %>
+
+    <%# want image for tiles %>
+
+    <div class="index-container">
+        <% @users.each do |u| %>
+            <div class="index-tile">
+                <%= link_to u.user_name, user_path(u) %>
+            </div>
+        <% end %>
+    </div>
 </div>

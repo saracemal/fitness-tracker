@@ -1,32 +1,34 @@
-<h1><%= "#{@user.user_name}'s Routines" %></h1>
-<div class="container-fluid">
-   <p>
-   <% @unique_routines.each do |ur| %>
-   <% workout_id = ur.name.downcase.gsub(" ", "-")%>
-   <p>
-      <button class="btn btn-dark" type="button" data-toggle="collapse" data-target="#<%= workout_id %>" aria-expanded="false" aria-controls="collapseExample">
-         <%= ur.name %>
-      </button>
+<div class="container">
+   <h1><%= "#{@user.user_name}'s Routines" %></h1>
+   <div class="container-fluid">
+      <p>
+      <% @unique_routines.each do |ur| %>
+      <% workout_id = ur.name.downcase.gsub(" ", "-")%>
+      <p>
+         <button class="btn btn-dark" type="button" data-toggle="collapse" data-target="#<%= workout_id %>" aria-expanded="false" aria-controls="collapseExample">
+            <%= ur.name %>
+         </button>
 
-      <div class="collapse" id= "<%= workout_id %>" >
-         <div class="card card-body">
-            <ul>
-               <% ur.entries.each do |entry| %>
-                  <% if entry.user_id == @user.id%>
-                     <ul class="list-group">
-                        <li class="list-group-item">
-                           <%= "Title: #{entry.title}" %><br>
-                           <%= "Description: #{entry.description}" %>
-                        </li>
-                     </ul>
-                  <% end %>
-               
-            <% end %>
+         <div class="collapse" id= "<%= workout_id %>" >
+            <div class="card card-body">
+               <ul>
+                  <% ur.entries.each do |entry| %>
+                     <% if entry.user_id == @user.id%>
+                        <ul class="list-group">
+                           <li class="list-group-item">
+                              <%= "Title: #{entry.title}" %><br>
+                              <%= "Description: #{entry.description}" %>
+                           </li>
+                        </ul>
+                     <% end %>
+                  
+               <% end %>
+            </div>
          </div>
-      </div>
+         </p>
+         <% end %>
       </p>
-      <% end %>
-   </p>
+   </div>
 </div>
 
 

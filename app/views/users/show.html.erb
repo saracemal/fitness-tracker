@@ -1,4 +1,4 @@
-
+<div class="container">
     <div class="container-fluid">
     <% if @user.id == @current_user.id %>
         <h1> About Me </h1>
@@ -13,7 +13,7 @@
 
         <br>
         <br>
-        <a class="btn btn-dark" href="/users/<%=@user.id%>/edit" role="button">Edit Profile</a>
+        <a class="btn btn-light" href="/users/<%=@user.id%>/edit" role="button">Edit Profile</a>
     </div>
 
     <div class ="container-fluid">
@@ -26,12 +26,12 @@
         </ul>
         <br>
 
-        <a class="btn btn-dark" href="/routines/" role="button">Manage routines and entries</a>
+        <a class="btn btn-light" href="/routines/" role="button">Manage routines and entries</a>
     
         <br>
         <br>
 
-        <a class="btn btn-dark" href="/routines/new/" role="button">Add Routine</a>
+        <a class="btn btn-light" href="/routines/new/" role="button">Add Routine</a>
     </div>
     <% else %>
     <div class="container-fluid">
@@ -55,7 +55,7 @@
         </ul>
 
         <br>
-        <a class="btn btn-dark" href="/users/<%=@user.id%>/page/" role="button">See their routines and entries</a>
+        <a class="btn btn-light" href="/users/<%=@user.id%>/page/" role="button">See their routines and entries</a>
     <% end %>
     </div>
-
+</div>

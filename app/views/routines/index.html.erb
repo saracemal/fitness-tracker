@@ -1,18 +1,19 @@
+<div class="container">
+    <h1><p>Your Routines</p></h1>
 
-<h1><p>Your Routines</p></h1>
 
+    <div class="list-group">
+        <% @unique_routines.each do |routine|%>
+            <li class="list-group-item"><%= link_to routine.name, routine_path(routine) %></li>
+        <% end %>
+    </div>
 
-<div class="list-group">
-    <% @unique_routines.each do |routine|%>
-        <li class="list-group-item"><%= link_to routine.name, routine_path(routine) %></li>
-    <% end %>
-</div>
-
-<div>
-    All routines ( delete later, for development purpose)
-    <% @routines.each do |routine| %>
-        <li><%= link_to routine.name, routine_path(routine) %></li>
-    <% end %><br><br>
+    <div>
+        All routines ( delete later, for development purpose)
+        <% @routines.each do |routine| %>
+            <li><%= link_to routine.name, routine_path(routine) %></li>
+        <% end %><br><br>
+    </div>
 </div>
 
 
