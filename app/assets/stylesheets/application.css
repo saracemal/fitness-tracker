@@ -306,7 +306,7 @@ body {
    margin: 10px;
    border-radius: 25px; 
  }
- /*
+ 
  .index-tile:hover {
    border: 3px solid rgb(62, 7, 79); 
    background-color: rgba(62, 7, 79, 0.2);
@@ -325,11 +325,11 @@ body {
    max-width: 250px;
  }
  
- /* .index-tile a {
+ .index-tile a {
    text-decoration: none;
  } 
  
- 
+ /*
  .show-container {
    background-color: rgba(255,255,255,0.4);
    padding: 10px;

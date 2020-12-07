@@ -29,7 +29,12 @@
     <div class="index-container">
         <% @users.each do |u| %>
             <div class="index-tile">
-                <%= link_to u.user_name, user_path(u) %>
+                <p><%= link_to u.user_name, user_path(u) %></p>
+                <% if u.img_url %>
+                    <%= image_tag u.img_url, class: 'index-img' %>
+                <% else %>
+                    <img src="https://thumbs.dreamstime.com/b/abstract-woman-meditating-splash-watercolors-lotus-yoga-pose-fitness-abstract-woman-meditating-splash-watercolors-137768632.jpg">
+                <% end %>
             </div>
         <% end %>
     </div>

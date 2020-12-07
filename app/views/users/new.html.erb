@@ -39,6 +39,8 @@
           <%= f.label :height %> (in inches)
           <%= f.number_field :height %>
           <br>
+          <%= f.hidden_field :img_url, value: @img_url.sample %>
+          <br>
           <br>
           <%= f.submit class: "btn btn-light" %>
       <% end %>
