@@ -15,6 +15,10 @@
         <a class="btn btn-light" href="/entries/<%=@entry.id%>/edit/" role="button">Edit Entry</a>
         <br>
         <br>
+        <%= link_to "Back", routine_path(@entry.routine) %>
+        <br>
+        <br>
         <h4 style="color:white">Author: <%= link_to @entry.user.user_name, user_path(@entry.user) %></h4>
+
     </div>
 </div>
