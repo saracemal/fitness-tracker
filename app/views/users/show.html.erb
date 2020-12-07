@@ -3,7 +3,7 @@
     <% if @user.id == @current_user.id %>
         <h1> About Me </h1>
 
-        <%= image_tag @user.img_url, class: 'index-img' %>
+        <%=# image_tag @user.img_url, class: 'index-img' %>
         
         <ul class="list-group">
             <li class="list-group-item">Username: <%= @user.user_name %></li>
