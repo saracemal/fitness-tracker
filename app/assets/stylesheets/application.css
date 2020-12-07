@@ -304,7 +304,7 @@ body {
    text-align: center;
    padding: 10px;
    margin: 10px;
-   border-radius: 25px;
+   border-radius: 10px;
    max-width: 300px; 
    max-height: 300px;
    ;
@@ -330,8 +330,9 @@ body {
     max-width:200px;
     max-height:250px;
     width: auto;
-    height: auto;
+    height: 85%;
     border-radius: 5px;
+    object-fit: cover;
   }
 
  .show-img {
