@@ -61,14 +61,19 @@
     <div class="container-fluid">
         <h2 style="color:white"> Their Routines </h2>
 
-        <ul class="list-group">
-        <% @unique_routines_for_other.each do |ur| %>
-            <li class="list-group-item"><%= ur.name %></li>
-        <% end %>
-        </ul>
-
+        <% if @unique_routines_for_other.count >= 1%>
+            <ul class="list-group">
+                <% @unique_routines_for_other.each do |ur| %>
+                    <li class="list-group-item"><%= link_to ur.name, routine_path(ur) %></li>
+                <% end %>
+            </ul>
+        <br>
         <br>
         <a class="btn btn-light" href="/users/<%=@user.id%>/page/" role="button">See their routines and entries</a>
+        <br>
+        <% else %>
+            <p style="color:white"><%= @user.user_name%> has no routines yet.</p>
+        <% end %>
     <% end %>
     </div>
 </div>
