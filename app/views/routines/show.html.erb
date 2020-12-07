@@ -25,7 +25,7 @@
         <%#form div here%>
         
         <% if @routine.user_id == cookies[:user_id].to_i %>
-            <div class="routine-form">
+            <div class="entry-form">
                 <h3> Add an exercise </h3>
 
                 <%= form_for @routine_exercise do |f| %>
@@ -89,26 +89,26 @@
 
 
 
-        <%#Don't like this form%>
+        
         <div class="entry-form">
-        <h2> Let the world know.. </h2>
+            <h2> Let the world know.. </h2>
 
-        <%= form_for @entry do |f| %>
-            <div class="form-input">
-                <%= f.label :title %> 
-                <%= f.text_field :title %>
-            </div>  
-            <br>
-            <div class="form-input">
-                <%= f.label :description %>
-                <%= f.text_area :description %>
-            </div>
+            <%= form_for @entry do |f| %>
+                <div class="form-input">
+                    <%= f.label :title %> 
+                    <%= f.text_field :title %>
+                </div>  
+                <br>
+                <div class="form-input">
+                    <%= f.label :description %>
+                    <%= f.text_area :description %>
+                </div>
 
-            <%= f.hidden_field :routine_id, value: @routine.id %>
-            <%= f.hidden_field :user_id, value: cookies[:user_id].to_i %>
+                <%= f.hidden_field :routine_id, value: @routine.id %>
+                <%= f.hidden_field :user_id, value: cookies[:user_id].to_i %>
 
-            <%= f.submit "Add entry" %>
-        <% end %>
+                <%= f.submit "Add entry" %>
+            <% end %>
         <div>
     <div>
 </div>
