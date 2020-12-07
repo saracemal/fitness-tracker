@@ -1,29 +1,33 @@
-<h1> Edit Entry </h1>
+<div class="form-container">
+  <h1> Edit Entry </h1>
 
-<% if flash[:entry_errors] %>
-  <ul>
-    <% flash[:entry_errors].each do |error| %>
-      <li><%= error %></li>
-    <% end%>
-  </ul>
-<% end%>
+  <% if flash[:entry_errors] %>
+    <ul>
+      <% flash[:entry_errors].each do |error| %>
+        <li><%= error %></li>
+      <% end%>
+    </ul>
+  <% end%>
 
-<%= form_for @entry do |f| %>
-    <%= f.label :title %> 
-    <%= f.text_field :title %>
-    <br>
-    <br>
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-    <br>
-    <br>
-    <%= f.label :routine%>
-    <%= f.collection_select :routine_id, Routine.all, :id, :name%>
-    <br>
-    <br>
-    <%= f.hidden_field :user_id, value: cookies[:user_id].to_i %>
+  <%= form_for @entry do |f| %>
+      <%= f.label :title %> 
+      <%= f.text_field :title %>
+      <br>
+      <br>
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+      <br>
+      <br>
+      <%= f.label :routine%>
+      <%= f.collection_select :routine_id, Routine.all, :id, :name%>
+      <br>
+      <br>
+      <%= f.hidden_field :user_id, value: cookies[:user_id].to_i %>
 
-    <%= f.submit %>
-<% end %>
+      <%= f.submit class: "btn btn-light"%>
+  <% end %>
+  <br>
+  <br>
 
-<%= button_to "Delete This Entry", entry_path(@entry), method: :delete %>
+  <%= button_to "Delete This Entry", entry_path(@entry), method: :delete %>
+</div>

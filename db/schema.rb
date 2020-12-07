@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_02_200509) do
+ActiveRecord::Schema.define(version: 2020_12_07_002347) do
 
   create_table "entries", force: :cascade do |t|
     t.string "title"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 2020_12_02_200509) do
     t.integer "weight"
     t.integer "height"
     t.string "password_digest"
+    t.string "img_url"
   end
 
 end

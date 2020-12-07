@@ -1,11 +1,11 @@
 <div class="container">
-   <h1><%= "#{@user.user_name}'s Routines" %></h1>
+   <h1 style="color:white"><%= "#{@user.user_name}'s Routines" %></h1>
    <div class="container-fluid">
       <p>
       <% @unique_routines.each do |ur| %>
       <% workout_id = ur.name.downcase.gsub(" ", "-")%>
       <p>
-         <button class="btn btn-dark" type="button" data-toggle="collapse" data-target="#<%= workout_id %>" aria-expanded="false" aria-controls="collapseExample">
+         <button class="btn btn-light" type="button" data-toggle="collapse" data-target="#<%= workout_id %>" aria-expanded="false" aria-controls="collapseExample">
             <%= ur.name %>
          </button>
 
@@ -33,25 +33,25 @@
 
 
 
+<%#
+<%= @user.id <br>
+<% @unique_routines.each do |ur|
+   <%= ur.user_id
+<% end 
 
-<%= @user.id %><br>
-<% @unique_routines.each do |ur|%>
-   <%= ur.user_id%>
-<% end %>
-
-   <% @unique_routines.each do |ur| %>
+   <% @unique_routines.each do |ur| 
       <ul>
          <li>
             <p>
-            Routine: <%= ur.name %> 
-            <% ur.entries.each do |entry| %>
-               <% if entry.user_id == @user.id%>
+            Routine: <%= ur.name 
+            <% ur.entries.each do |entry| 
+               <% if entry.user_id == @user.id
                <p>
-                  <%= "Title: #{entry.title}" %><br>
-                  <%= "Description: #{entry.description}" %>
+                  <%= "Title: #{entry.title}" <br>
+                  <%= "Description: #{entry.description}" 
                </p>
-               <% end %>
-            <% end %>
+               <% end 
+            <% end 
             </p>
          </li>
       </ul>

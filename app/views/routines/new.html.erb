@@ -19,7 +19,7 @@
       <br>
       <br>
       <%= f.hidden_field :user_id, value: cookies[:user_id].to_i %>
-      <%= f.submit "Add Routine" %>
+      <%= f.submit "Add Routine", class: "btn btn-light" %>
   <% end %>
 </div>
 
@@ -40,6 +40,6 @@
       <br>
       <br>
       <%= f.hidden_field :user_id, value: cookies[:user_id].to_i %>
-      <%= f.submit "Create Routine" %>
+      <%= f.submit "Create Routine", class: "btn btn-light" %>
   <% end %>
 </div>

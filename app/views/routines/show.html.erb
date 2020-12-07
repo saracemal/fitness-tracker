@@ -1,12 +1,13 @@
 <div class="container">
-    <h1><%= @routine.name %></h1>
-    <%= button_to 'Like', routine_likes_path(@routine), method: :post %>
+    <h1 style="color:white"><%= @routine.name %></h1>
+    <%#<%= button_to 'Like', routine_likes_path(@routine), method: :post %>
+    <a class="btn btn-light" data-method= "post" href="/routines/<%=@routine.id%>/likes/" role="button">Like</a>
     <p><%= @routine.likes.count %> <%= (@routine.likes.count) == 1 ? 'Like' : 'Likes'%></p>
 
     <div class=container-fluid>
         <% # We want to have the exercises for this routine listed here, and an entry field%>
 
-        <h3> Exercises in this routine </h3>
+        <h3 style="color:white"> Exercises in this routine </h3>
 
         <% @routine.routine_exercises.each do |re| %>
             <ul class="list-group">
@@ -22,39 +23,42 @@
         <% end %>
 
         <%#form div here%>
+        
         <% if @routine.user_id == cookies[:user_id].to_i %>
-            <h3> Add an exercise </h3>
+            <div class="routine-form">
+                <h3> Add an exercise </h3>
 
-            <%= form_for @routine_exercise do |f| %>
-                <%= f.label :exercise %>
-                <%= f.collection_select :exercise_id, Exercise.all, :id, :name %>
-                <br>
-                <br>
-                <%= f.label :reps %>
-                <%= f.number_field :reps %>
-                <br>
-                <br>
-                <%= f.submit "Add Exercise" %>
+                <%= form_for @routine_exercise do |f| %>
+                    <%= f.label :exercise %>
+                    <%= f.collection_select :exercise_id, Exercise.all, :id, :name %>
+                    <br>
+                    <br>
+                    <%= f.label :reps %>
+                    <%= f.number_field :reps %>
+                    <br>
+                    <br>
+                    <%= f.submit "Add Exercise" %>
 
-                <%= f.hidden_field :routine_id, value: @routine.id%>
-            <% end %>
+                    <%= f.hidden_field :routine_id, value: @routine.id%>
+                <% end %>
+            </div>
         <% end %>
         <br>
         <br>
     </div>
 
     <div class="container-fluid">
-        <h3> Journal </h3> needs to be sorted by date, most recent at top
-        <%#Accordion here%>
-        <% @routine.entries.each do |entry| %>
-            <% if entry.user_id == cookies[:user_id].to_i%>
+        <h3 style="color:white"> Journal </h3>
+        <%#
+        <% @routine.entries.each do |entry| 
+            <% if entry.user_id == cookies[:user_id].to_i
                 <ul>
                     <li>
-                    <%= link_to entry.title, entry_path(entry) %><br><br>
-                    <%= entry.description %>
+                    <%= link_to entry.title, entry_path(entry) <br><br>
+                    <%= entry.description 
                     </li>
                 </ul>
-            <% end %>
+            <% end 
         <% end %>
 
     <p>
@@ -62,7 +66,7 @@
             <% if entry.user_id == cookies[:user_id].to_i%>
                 <% entry_id = entry.title.downcase.gsub(" ", "-")%>
                 <p>
-                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#<%= entry_id %>" aria-expanded="false" aria-controls="collapseExample">
+                    <button class="btn btn-light" type="button" data-toggle="collapse" data-target="#<%= entry_id %>" aria-expanded="false" aria-controls="collapseExample">
                         <%= entry.title %>
                     </button>
 
@@ -72,7 +76,7 @@
                                 <li class="list-group-item">
                                     <%= "Description:  "%><br>
                                     <%= "#{entry.description}" %><br><br>
-                                    <a class="btn btn-primary" href="/entries/<%=entry.id%>/edit/" role="button">Edit Entry</a>
+                                    <a class="btn btn-light" href="/entries/<%=entry.id%>/edit/" role="button">Edit Entry</a>
                                 </li>
                             </ul>
                         </div>
