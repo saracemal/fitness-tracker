@@ -31,14 +31,14 @@
             <div class="index-tile">
                 <p><%= link_to u.user_name, user_path(u) %></p>
                 <% if u.img_url %>
-                <img src="https://robohash.org/workout.png?size=200x200">
+                <%# <img src="https://robohash.org/workout.png?size=200x200"> %>
 
-                    <%# image_tag u.img_url, class: 'index-img' %>
+                    <%= image_tag u.img_url, class: 'index-img' %>
                 <% else %>
-                <div class="index-img">
-                <img src="https://robohash.org/workout.png?size=200x200">
+                    <img src="https://thumbs.dreamstime.com/b/abstract-woman-meditating-splash-watercolors-lotus-yoga-pose-fitness-abstract-woman-meditating-splash-watercolors-137768632.jpg" class="index-img">
+                    <%# <img src="https://robohash.org/workout.png?size=200x200"> %>
                 <% end %>
-                </div>
+                
             </div>
         <% end %>
     </div>

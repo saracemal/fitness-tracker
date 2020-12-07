@@ -300,7 +300,7 @@ body {
   }
  
  .index-tile {
-   background-color: rgba(62, 7, 79, 0.2);
+   background-color: rgba(224, 161, 24, 0.26);
    text-align: center;
    padding: 10px;
    margin: 10px;
@@ -311,7 +311,7 @@ body {
  }
  
  .index-tile:hover {
-   border: 3px solid rgb(62, 7, 79); 
+   border: 3px solid rgb(163, 36, 19); 
    background-color: rgba(62, 7, 79, 0.2);
  }
  
@@ -321,17 +321,28 @@ body {
    font-weight: 1200;
  }
  
- .index-img {
+ /* .index-img {
    max-width: 200px;
    max-height: 200px;
- }
+ } */
+  .index-img {
+    display: block;
+    max-width:200px;
+    max-height:250px;
+    width: auto;
+    height: auto;
+    border-radius: 5px;
+  }
+
  .show-img {
-   max-width: 250px;
+   max-width: 300px;
  }
  
  .index-tile a {
    text-decoration: none;
+   font-weight: bold;
  } 
+ .index-tile a
  
  /*
  .show-container {

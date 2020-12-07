@@ -1,9 +1,13 @@
 <div class="container">
     <div class="container-fluid">
     <% if @user.id == @current_user.id %>
-        <h1> About Me </h1>
+        <h1 style="color:white"> About Me </h1>
 
-        <%=# image_tag @user.img_url, class: 'index-img' %>
+            <% if @user.img_url%>
+                <%= image_tag @user.img_url, class: 'show-img' %>
+            <% else %>
+                <img src="https://thumbs.dreamstime.com/b/abstract-woman-meditating-splash-watercolors-lotus-yoga-pose-fitness-abstract-woman-meditating-splash-watercolors-137768632.jpg" class="show-img">
+            <% end %>
         
         <ul class="list-group">
             <li class="list-group-item">Username: <%= @user.user_name %></li>
@@ -12,7 +16,7 @@
             <li class="list-group-item">Weight: <%= @user.weight %> lbs.</li>
             <li class="list-group-item">Height: <%= @user.height %> inches </li>
         </ul>
-        
+    
 
         <br>
         <br>
@@ -20,7 +24,7 @@
     </div>
 
     <div class ="container-fluid">
-        <h2> My Routines </h2>
+        <h2 style="color:white"> My Routines </h2>
 
         <ul class="list-group">
         <% @unique_routines.each do |ur| %>
@@ -38,7 +42,13 @@
     </div>
     <% else %>
     <div class="container-fluid">
-        <h1> About <%= @user.user_name%> </h1>
+        <h1 style="color:white"> About <%= @user.user_name%> </h1>
+
+        <% if @user.img_url%>
+            <%= image_tag @user.img_url, class: 'show-img' %>
+        <% else %>
+            <img src="https://thumbs.dreamstime.com/b/abstract-woman-meditating-splash-watercolors-lotus-yoga-pose-fitness-abstract-woman-meditating-splash-watercolors-137768632.jpg" class="show-img">
+        <% end %>
 
         <ul class="list-group">
             <li class="list-group-item">Username: <%= @user.user_name %></li>
@@ -49,7 +59,7 @@
         </ul>
     </div>
     <div class="container-fluid">
-        <h2> Their Routines </h2>
+        <h2 style="color:white"> Their Routines </h2>
 
         <ul class="list-group">
         <% @unique_routines_for_other.each do |ur| %>
