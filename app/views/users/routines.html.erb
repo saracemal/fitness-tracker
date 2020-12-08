@@ -33,27 +33,6 @@
 
 
 
-<%#
-<%= @user.id <br>
-<% @unique_routines.each do |ur|
-   <%= ur.user_id
-<% end 
 
-   <% @unique_routines.each do |ur| 
-      <ul>
-         <li>
-            <p>
-            Routine: <%= ur.name 
-            <% ur.entries.each do |entry| 
-               <% if entry.user_id == @user.id
-               <p>
-                  <%= "Title: #{entry.title}" <br>
-                  <%= "Description: #{entry.description}" 
-               </p>
-               <% end 
-            <% end 
-            </p>
-         </li>
-      </ul>
-   <% end %>
+
 
